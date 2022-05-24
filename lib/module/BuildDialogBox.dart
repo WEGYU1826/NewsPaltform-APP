@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
 
 import 'DialogBox.dart';
 
@@ -26,28 +27,38 @@ class _BuildDialogBoxState extends State<BuildDialogBox> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CircleAvatar(
-          radius: 15.0,
-          backgroundColor: Theme.of(context).primaryColorLight,
-          backgroundImage: AssetImage(list[index].avatorImagURL!),
+        GestureDetector(
+          onTap: () => setState(() {
+            Navigator.pushNamed(context, ChannelPage.id);
+          }),
+          child: CircleAvatar(
+            radius: 15.0,
+            backgroundColor: Theme.of(context).primaryColor,
+            backgroundImage: AssetImage(list[index].avatorImagURL!),
+          ),
         ),
         const SizedBox(width: 10.0),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(list[index].name!,
-                // textAlign: TextAlign.start,
+        GestureDetector(
+          onTap: () => setState(() {
+            Navigator.pushNamed(context, ChannelPage.id);
+          }),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(list[index].name!,
+                  // textAlign: TextAlign.start,
+                  style: GoogleFonts.acme(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+              Text(
+                list[index].time!,
                 style: GoogleFonts.acme(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold,
-                )),
-            Text(
-              list[index].time!,
-              style: GoogleFonts.acme(
-                  // color: HexColor("#C0C0BE"),
-                  ),
-            ),
-          ],
+                    // color: HexColor("#C0C0BE"),
+                    ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(width: 220.0),
         DialogBox(index: index),

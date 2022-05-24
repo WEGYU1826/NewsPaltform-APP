@@ -9,6 +9,7 @@ import 'package:zena/module/BuildDialogBox.dart';
 class MainContent extends StatefulWidget {
   List? list;
   MainContent({Key? key, required this.list}) : super(key: key);
+  static const String id = "main_containt";
 
   @override
   State<MainContent> createState() => _MainContentState();
@@ -39,7 +40,7 @@ class _MainContentState extends State<MainContent> {
                     height: 340.0,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColorLight,
+                      color: Theme.of(context).accentColor,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(30.0),
                       ),

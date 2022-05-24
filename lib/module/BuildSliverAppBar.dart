@@ -32,7 +32,7 @@ class _BuilSliverAppBarState extends State<BuilSliverAppBar> {
         title,
         style: GoogleFonts.acme(
           fontSize: 30.0,
-          color: HexColor("#0E0E0E"),
+          color: Theme.of(context).primaryColor,
         ),
       ),
       actions: [
@@ -43,7 +43,7 @@ class _BuilSliverAppBarState extends State<BuilSliverAppBar> {
             child: Text(
               "SAVE",
               style: GoogleFonts.acme(
-                color: HexColor("#C0C0BE"),
+                // color: HexColor("#C0C0BE"),
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
               ),

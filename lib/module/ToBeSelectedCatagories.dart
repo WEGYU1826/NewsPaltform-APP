@@ -50,7 +50,7 @@ class _ToBeSelectedCatagoriesState extends State<ToBeSelectedCatagories> {
               child: Text(
                 string[index],
                 style: GoogleFonts.acme(
-                  color: Theme.of(context).primaryColorLight,
+                  color: Theme.of(context).primaryColor,
                   fontSize: 25.0,
                 ),
               ),

@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
+import 'package:provider/provider.dart';
 import 'package:zena/module/ChannalCatagoriList.dart';
 import 'package:zena/module/contConst.dart';
 
+import '../../ThemeData/theme_preference.dart';
 import '../../module/BuidChannelList.dart';
 import '../../module/DialogBoxForLogoIcons.dart';
 import '../../module/ServicePageConst.dart';
@@ -26,8 +26,9 @@ class _ChannelListAccordingToTypeState
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -39,28 +40,27 @@ class _ChannelListAccordingToTypeState
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),
             centerTitle: true,
             leading: leadingIcon(context),
-            title: logoImage(),
+            title: logoImage(_themeProvider.darkTheme),
             actions: [
               DialogBoxForLogoIcons(
                 icon: Icon(
                   FontAwesomeIcons.bars,
-                  size: 30.0,
-                  color: HexColor("#0E0E0E"),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      HexColor("#C0C0BE"), //begin color
-                      HexColor("#E5E5E5"), //end color
-                    ],
-                  ),
-                  borderRadius: const BorderRadius.only(
+                decoration: const BoxDecoration(
+                  // gradient: LinearGradient(
+                  //   begin: Alignment.topCenter,
+                  //   end: Alignment.bottomCenter,
+                  //   colors: [
+                  //     HexColor("#C0C0BE"), //begin color
+                  //     HexColor("#E5E5E5"), //end color
+                  //   ],
+                  // ),
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0),
                   ),

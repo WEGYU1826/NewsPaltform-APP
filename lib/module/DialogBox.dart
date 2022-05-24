@@ -39,33 +39,33 @@ class _DialogBoxState extends State<DialogBox> {
               children: [
                 buidPopUpContent(
                   "Save",
-                  Icon(
+                  const Icon(
                     Icons.save_outlined,
-                    color: HexColor("#0E0E0E"),
+                    // color: HexColor("#0E0E0E"),
                     size: 20.0,
                   ),
                 ),
                 buidPopUpContent(
                   "Share",
-                  Icon(
+                  const Icon(
                     Icons.share_outlined,
-                    color: HexColor("#0E0E0E"),
+                    // color: HexColor("#0E0E0E"),
                     size: 20.0,
                   ),
                 ),
                 buidPopUpContent(
                   "Go to Channel",
-                  Icon(
+                  const Icon(
                     Icons.navigation_outlined,
-                    color: HexColor("#0E0E0E"),
+                    // color: HexColor("#0E0E0E"),
                     size: 20.0,
                   ),
                 ),
                 buidPopUpContent(
                   "Report Issue",
-                  Icon(
+                  const Icon(
                     Icons.report_problem_outlined,
-                    color: HexColor("#0E0E0E"),
+                    // color: HexColor("#0E0E0E"),
                     size: 20.0,
                   ),
                 ),
@@ -95,7 +95,10 @@ class _DialogBoxState extends State<DialogBox> {
             const SizedBox(width: 10.0),
             Text(
               string,
-              style: GoogleFonts.acme(fontSize: 16.0),
+              style: GoogleFonts.acme(
+                fontSize: 16.0,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ],
         ),

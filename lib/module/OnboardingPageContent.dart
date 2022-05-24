@@ -12,7 +12,7 @@ class OnboardingPageContent {
   });
 }
 
-final List<OnboardingPageContent> onboardingData = [
+final List<OnboardingPageContent> onboardingDataLight = [
   OnboardingPageContent(
     logoURL: "assets/images/light/logo.png",
     imageURL: "assets/images/light/image1.png",
@@ -30,6 +30,29 @@ final List<OnboardingPageContent> onboardingData = [
   OnboardingPageContent(
     logoURL: "assets/images/light/logo.png",
     imageURL: "assets/images/light/image6.png",
+    heading: "Personalized Content",
+    subHeading: "News feed personalized accoding to your preference.",
+  ),
+];
+
+final List<OnboardingPageContent> onboardingDataDark = [
+  OnboardingPageContent(
+    logoURL: "assets/images/dark/logo.png",
+    imageURL: "assets/images/dark/image3.png",
+    heading: "Everything You Need In One Place",
+    subHeading:
+        "No more wasting time and energy searching for the news you want.",
+  ),
+  OnboardingPageContent(
+    logoURL: "assets/images/dark/logo.png",
+    imageURL: "assets/images/dark/image2.png",
+    heading: "Smart Filtering",
+    subHeading:
+        "With our smart filtering features you can organize your feed to fit your needs.",
+  ),
+  OnboardingPageContent(
+    logoURL: "assets/images/dark/logo.png",
+    imageURL: "assets/images/dark/image1.png",
     heading: "Personalized Content",
     subHeading: "News feed personalized accoding to your preference.",
   ),

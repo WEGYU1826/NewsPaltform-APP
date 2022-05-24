@@ -23,13 +23,13 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            floating: true,
+            floating: false,
             pinned: false,
-            snap: true,
+            snap: false,
             elevation: 0.0,
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),
             leading: leadingIcon(context),
@@ -37,7 +37,7 @@ class _SettingPageState extends State<SettingPage> {
               "Settings",
               style: GoogleFonts.acme(
                 fontSize: 30.0,
-                color: HexColor("#0E0E0E"),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -51,10 +51,10 @@ class _SettingPageState extends State<SettingPage> {
             child: settingContent(
               context,
               "Personal Information",
-              Icon(
+              const Icon(
                 Icons.person_outline_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
               PersonalInfoPage.id,
             ),
@@ -63,10 +63,10 @@ class _SettingPageState extends State<SettingPage> {
             child: settingContent(
               context,
               "Display",
-              Icon(
+              const Icon(
                 Icons.wb_sunny_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
               EditDisplay.id,
             ),
@@ -75,36 +75,34 @@ class _SettingPageState extends State<SettingPage> {
             child: settingContent(
               context,
               "Change Preferance",
-              Icon(
+              const Icon(
                 Icons.grid_view_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
               ChangePreferancePage.id,
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Notification",
-              Icon(
+              const Icon(
                 Icons.notification_add_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Subscription",
-              Icon(
+              const Icon(
                 Icons.subscriptions_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(
@@ -114,51 +112,47 @@ class _SettingPageState extends State<SettingPage> {
             child: titleContent("SUPPORT"),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Contact Us",
-              Icon(
+              const Icon(
                 Icons.contacts_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Invite Friends",
-              Icon(
+              const Icon(
                 Icons.person_add_alt_1_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Help Center",
-              Icon(
+              const Icon(
                 Icons.help_outline_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "About Us",
-              Icon(
+              const Icon(
                 Icons.info_outline,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(
@@ -168,27 +162,25 @@ class _SettingPageState extends State<SettingPage> {
             child: titleContent("LEGAL"),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Term of Service",
-              Icon(
+              const Icon(
                 Icons.file_copy_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Privacy Policy",
-              Icon(
+              const Icon(
                 Icons.policy_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(

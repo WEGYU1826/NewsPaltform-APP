@@ -4,31 +4,33 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class BuildTextFildPassword extends StatefulWidget {
-  BuildTextFildPassword({Key? key, required this.hintText}) : super(key: key);
-  String? value;
+  String? textValue;
   String? hintText;
+  BuildTextFildPassword({
+    Key? key,
+    required this.hintText,
+    required this.textValue,
+  }) : super(key: key);
 
   @override
   State<BuildTextFildPassword> createState() => _BuildTextFildPasswordState();
 }
 
 class _BuildTextFildPasswordState extends State<BuildTextFildPassword> {
-  String? _value;
   bool hidePassword = false;
   @override
   Widget build(BuildContext context) {
-    return buildTextFild(context, widget.hintText!);
-  }
-
-  Widget buildTextFild(context, String hintText) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: TextField(
           obscureText: hidePassword,
           // textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+          ),
           onChanged: (value) {
-            _value = value;
+            widget.textValue = value;
           },
           decoration: InputDecoration(
             suffixIcon: IconButton(
@@ -41,7 +43,7 @@ class _BuildTextFildPasswordState extends State<BuildTextFildPassword> {
               icon:
                   Icon(hidePassword ? Icons.visibility_off : Icons.visibility),
             ),
-            hintText: hintText,
+            hintText: widget.hintText,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
             border: const OutlineInputBorder(

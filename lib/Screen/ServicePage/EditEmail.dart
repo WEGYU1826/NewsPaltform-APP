@@ -18,10 +18,11 @@ class EditEmail extends StatefulWidget {
 
 class _EditEmailState extends State<EditEmail> {
   bool showSpinner = false;
+  String? email;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: CustomScrollView(
@@ -34,7 +35,7 @@ class _EditEmailState extends State<EditEmail> {
             const SliverToBoxAdapter(
               child: SizedBox(height: 15.0),
             ),
-            BuildTextFild(hintText: "Email"),
+            BuildTextFild(hintText: "Email", textValue: email),
           ],
         ),
       ),

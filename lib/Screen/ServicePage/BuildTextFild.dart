@@ -4,37 +4,38 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class BuildTextFild extends StatefulWidget {
+  String? textValue;
+  String? hintText;
   BuildTextFild({
     Key? key,
     required this.hintText,
+    required this.textValue,
   }) : super(key: key);
-  String? value;
-  String? hintText;
 
   @override
   State<BuildTextFild> createState() => _BuildTextFildState();
 }
 
 class _BuildTextFildState extends State<BuildTextFild> {
-  String? _value;
   @override
   Widget build(BuildContext context) {
-    return buildTextFild(context, widget.hintText!);
-  }
-
-  Widget buildTextFild(context, String hintText) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: TextField(
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+          ),
           keyboardType: TextInputType.name,
           // textAlign: TextAlign.center,
           onChanged: (value) {
-            _value = value;
+            widget.textValue = value;
           },
           decoration: InputDecoration(
-            prefixIconColor: HexColor("#2E92EE"),
-            hintText: hintText,
+            hintStyle: TextStyle(
+              color: Theme.of(context).primaryColor,
+            ),
+            hintText: widget.hintText,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
             border: const OutlineInputBorder(

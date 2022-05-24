@@ -43,7 +43,6 @@ class _PreferanceButtonState extends State<PreferanceButton> {
           child: Text(
             string,
             style: GoogleFonts.acme(
-              color: Theme.of(context).primaryColorLight,
               fontSize: 20.0,
             ),
           ),

@@ -24,7 +24,7 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
     return buildDescription(context, widget.imageURl!, widget.name!);
   }
 
-  Widget buildDescription(context, string, name) {
+  Widget buildDescription(context, String string, String name) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -88,14 +88,14 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
           children: [
             Icon(
               Icons.subscriptions_outlined,
-              color: Theme.of(context).primaryColorLight,
+              color: Theme.of(context).primaryColor,
             ),
             const SizedBox(width: 10.0),
             Text(
               string,
               style: GoogleFonts.acme(
                 fontSize: 25.0,
-                color: Theme.of(context).primaryColorLight,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ],

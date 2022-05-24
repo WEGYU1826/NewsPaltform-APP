@@ -2,14 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:zena/Screen/Authentication/LogInScreen.dart';
 import 'package:zena/Screen/Onboarding/DotIndicator.dart';
 import 'package:zena/module/OnboardingPageContent.dart';
 
+import '../../ThemeData/theme_preference.dart';
 import 'OnboardingStructure.dart';
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+  OnboardingPage({Key? key}) : super(key: key);
   static const String id = "onboarding_page";
 
   @override
@@ -33,6 +35,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    return newMethod(context);
+  }
+
+  Widget newMethod(BuildContext context) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -40,7 +47,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
           children: [
             Expanded(
               child: PageView.builder(
-                itemCount: onboardingData.length,
+                itemCount: _themeProvider.darkTheme
+                    ? onboardingDataDark.length
+                    : onboardingDataLight.length,
                 controller: _pageController,
                 onPageChanged: (index) {
                   setState(() {
@@ -48,10 +57,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   });
                 },
                 itemBuilder: (context, index) => OnboardingStructure(
-                  logoImage: onboardingData[index].logoURL,
-                  imageURL: onboardingData[index].imageURL,
-                  heading: onboardingData[index].heading,
-                  subHeading: onboardingData[index].subHeading,
+                  logoImage: _themeProvider.darkTheme
+                      ? onboardingDataDark[index].logoURL
+                      : onboardingDataLight[index].logoURL,
+                  imageURL: _themeProvider.darkTheme
+                      ? onboardingDataDark[index].imageURL
+                      : onboardingDataLight[index].imageURL,
+                  heading: _themeProvider.darkTheme
+                      ? onboardingDataDark[index].heading
+                      : onboardingDataLight[index].heading,
+                  subHeading: _themeProvider.darkTheme
+                      ? onboardingDataDark[index].subHeading
+                      : onboardingDataLight[index].subHeading,
                 ),
               ),
             ),
@@ -60,7 +77,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Row(
                 children: [
                   ...List.generate(
-                    onboardingData.length,
+                    _themeProvider.darkTheme
+                        ? onboardingDataDark.length
+                        : onboardingDataLight.length,
                     (index) => Padding(
                       padding: const EdgeInsets.only(
                         right: 8.0,

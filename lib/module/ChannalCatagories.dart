@@ -20,10 +20,11 @@ class _ChannalCatagorieState extends State<ChannalCatagorie> {
     return channalCatagories(widget.list!);
   }
 
-  Expanded channalCatagories(list) {
-    return Expanded(
+  Widget channalCatagories(List list) {
+    return Flexible(
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
         itemCount: list.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
@@ -34,17 +35,18 @@ class _ChannalCatagorieState extends State<ChannalCatagorie> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
+              height: 30.0,
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColorLight,
                 borderRadius: const BorderRadius.all(Radius.circular(20.0)),
               ),
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
                 child: Text(
                   list[index],
                   style: GoogleFonts.acme(
-                    fontSize: 25.0,
+                    fontSize: 20.0,
                     color: selectedIndex == index
                         ? HexColor("#2E92EE")
                         : HexColor("#0E0E0E"),

@@ -19,8 +19,8 @@ class DotIndicator extends StatelessWidget {
       width: 8,
       decoration: BoxDecoration(
         color: isActive
-            ? HexColor("#0E0E0E")
-            : HexColor("#0E0E0E").withOpacity(0.4),
+            ? HexColor("#2E92EE")
+            : HexColor("#2E92EE").withOpacity(0.4),
         borderRadius: const BorderRadius.all(
           Radius.circular(12),
         ),

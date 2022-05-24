@@ -72,6 +72,7 @@ class _BuildLogoListState extends State<BuildLogoList> {
                       ),
                     ),
                     const SizedBox(width: 20.0),
+                    const SizedBox(width: 200.0),
                     Text(
                       list[index].numbers!,
                       style: GoogleFonts.acme(

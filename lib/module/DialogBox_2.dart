@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+
+import '../ThemeData/theme_preference.dart';
 
 class DialogBoxForVerElip extends StatefulWidget {
   DialogBoxForVerElip({Key? key}) : super(key: key);
@@ -21,8 +24,10 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
   }
 
   Widget buildDialogBox() {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return IconButton(
       onPressed: () {
+        _themeProvider.darkTheme = !_themeProvider.darkTheme;
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
@@ -38,7 +43,7 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
                   "Share",
                   Icon(
                     Icons.share_outlined,
-                    color: HexColor("#0E0E0E"),
+                    color: Theme.of(context).primaryColor,
                     size: 20.0,
                   ),
                 ),
@@ -46,7 +51,7 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
                   "Subscription",
                   Icon(
                     Icons.subscriptions_outlined,
-                    color: HexColor("#0E0E0E"),
+                    color: Theme.of(context).primaryColor,
                     size: 20.0,
                   ),
                 ),
@@ -54,7 +59,7 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
                   "See Description",
                   Icon(
                     Icons.description_outlined,
-                    color: HexColor("#0E0E0E"),
+                    color: Theme.of(context).primaryColor,
                     size: 20.0,
                   ),
                 ),
@@ -62,7 +67,7 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
                   "Report Issue",
                   Icon(
                     Icons.report_problem_outlined,
-                    color: HexColor("#0E0E0E"),
+                    color: Theme.of(context).primaryColor,
                     size: 20.0,
                   ),
                 ),
@@ -74,7 +79,7 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
       icon: Icon(
         FontAwesomeIcons.ellipsisVertical,
         size: 30.0,
-        color: HexColor("#0E0E0E"),
+        color: Theme.of(context).primaryColor,
       ),
     );
   }
@@ -91,7 +96,10 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
             const SizedBox(width: 10.0),
             Text(
               string,
-              style: GoogleFonts.acme(fontSize: 16.0),
+              style: GoogleFonts.acme(
+                fontSize: 16.0,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ],
         ),

@@ -47,6 +47,8 @@ class _BuidChannelListState extends State<BuidChannelList> {
                         height: MediaQuery.of(context).size.height,
                         width: MediaQuery.of(context).size.width,
                         fit: BoxFit.cover,
+                        // color: Theme.of(context).primaryColor,
+                        // colorBlendMode: BlendMode.color,
                       ),
                     ),
                   ),

@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 
+import '../ThemeData/theme_preference.dart';
 import 'ServicePageConst.dart';
 
 class DialogBoxForLogoIcons extends StatefulWidget {
@@ -22,8 +23,10 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
   }
 
   IconButton logoIcon(context, icon) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return IconButton(
       onPressed: () {
+        _themeProvider.darkTheme = !_themeProvider.darkTheme;
         showDialog(
           context: context,
           builder: (context) {
@@ -46,20 +49,22 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                             "WEGYU",
                             style: GoogleFonts.acme(
                               fontSize: 20.0,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                           Text(
                             "wegyu@gmail.com",
                             style: GoogleFonts.acme(
                               fontSize: 16.0,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ],
                       ),
                       Icon(
                         FontAwesomeIcons.user,
-                        color: HexColor("#0E0E0E"),
                         size: 20.0,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ],
                   ),
@@ -69,16 +74,16 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                     "Account Setting",
                     Icon(
                       Icons.settings,
-                      color: HexColor("#0E0E0E"),
                       size: 20.0,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   buidPopUpContent(
                     "Change Preferance",
                     Icon(
                       Icons.grid_view_outlined,
-                      color: HexColor("#0E0E0E"),
                       size: 20.0,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   divider(),
@@ -86,24 +91,24 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                     "Light Theme",
                     Icon(
                       Icons.light_mode_outlined,
-                      color: HexColor("#0E0E0E"),
                       size: 20.0,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   buidPopUpContent(
                     "Dark Theme",
                     Icon(
                       Icons.dark_mode_outlined,
-                      color: HexColor("#0E0E0E"),
                       size: 20.0,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   buidPopUpContent(
                     "System Theme",
                     Icon(
                       Icons.display_settings_outlined,
-                      color: HexColor("#0E0E0E"),
                       size: 20.0,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   divider(),
@@ -111,8 +116,8 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                     "Sign Out",
                     Icon(
                       Icons.logout_outlined,
-                      color: HexColor("#0E0E0E"),
                       size: 20.0,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   divider(),
@@ -136,7 +141,10 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
           children: [
             Text(
               string,
-              style: GoogleFonts.acme(fontSize: 16.0),
+              style: GoogleFonts.acme(
+                fontSize: 16.0,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
             icon,
           ],

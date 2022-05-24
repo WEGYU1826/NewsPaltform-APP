@@ -27,25 +27,25 @@ Divider divider() {
   );
 }
 
-Image logoImage() {
+Image logoImage(bool isDark) {
   return Image.asset(
-    "assets/images/light/logo.png",
+    isDark ? "assets/images/dark/logo.png" : "assets/images/light/logo.png",
     height: 70.0,
     width: 70.0,
     fit: BoxFit.cover,
   );
 }
 
-Center authLogo() {
-  return Center(
+Widget authLogo(bool isDark) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 10.0),
     child: SizedBox(
       child: Image.asset(
-        "assets/images/light/logo.png",
-        height: 150,
-        width: 150,
-        fit: BoxFit.cover,
+        isDark ? "assets/images/dark/logo.png" : "assets/images/light/logo.png",
+        height: 100,
+        width: 100,
+        fit: BoxFit.contain,
       ),
-      // height: 200.0,
     ),
   );
 }
@@ -89,7 +89,7 @@ IconButton leadingIcon(BuildContext context) {
     },
     icon: Icon(
       Icons.arrow_back,
-      color: HexColor("#0E0E0E"),
+      color: Theme.of(context).primaryColor,
     ),
   );
 }
@@ -119,7 +119,7 @@ Padding textButton(BuildContext context) {
               style: GoogleFonts.acme(
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColorLight,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -144,7 +144,7 @@ Padding settingContent(BuildContext context, String str, Icon icon, String id) {
               Text(
                 str,
                 style: GoogleFonts.acme(
-                  color: HexColor("#0E0E0E"),
+                  // color: HexColor("#0E0E0E"),
                   fontSize: 20.0,
                 ),
               ),
@@ -163,6 +163,37 @@ Padding settingContent(BuildContext context, String str, Icon icon, String id) {
           ),
         ],
       ),
+    ),
+  );
+}
+
+Padding settingContentWithOut(BuildContext context, String str, Icon icon) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+    child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              str,
+              style: GoogleFonts.acme(
+                // color: HexColor("#0E0E0E"),
+                fontSize: 20.0,
+              ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: icon,
+            ),
+          ],
+        ),
+        Divider(
+          height: 0.0,
+          thickness: 1.0,
+          color: HexColor("#C0C0BE"),
+        ),
+      ],
     ),
   );
 }

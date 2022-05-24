@@ -3,10 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
 import 'package:zena/module/AccountCatagories.dart';
 import 'package:zena/module/contConst.dart';
 
+import '../../ThemeData/theme_preference.dart';
 import '../../module/MainContaint.dart';
 import '../../module/ServicePageConst.dart';
 
@@ -21,8 +23,9 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -34,33 +37,34 @@ class _AccountPageState extends State<AccountPage> {
             centerTitle: true,
             elevation: 0.0,
             leading: leadingIcon(context),
-            title: logoImage(),
+            title: logoImage(_themeProvider.darkTheme),
             actions: [
               IconButton(
                 onPressed: () {
                   Navigator.pushNamed(context, SettingPage.id);
+                  _themeProvider.darkTheme = !_themeProvider.darkTheme;
                 },
                 icon: Icon(
                   Icons.settings,
                   size: 30.0,
-                  color: HexColor("#0E0E0E"),
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      HexColor("#C0C0BE"),
-                      HexColor("#E5E5E5"), //begin color
-                      //end color
-                    ],
-                  ),
-                  color: HexColor("#C0C0BE"),
-                  borderRadius: const BorderRadius.only(
+                decoration: const BoxDecoration(
+                  // gradient: LinearGradient(
+                  //   begin: Alignment.topCenter,
+                  //   end: Alignment.bottomCenter,
+                  //   colors: [
+                  //     HexColor("#C0C0BE"),
+                  //     HexColor("#E5E5E5"), //begin color
+                  //     //end color
+                  //   ],
+                  // ),
+                  // color: HexColor("#C0C0BE"),
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0),
                   ),
@@ -74,10 +78,10 @@ class _AccountPageState extends State<AccountPage> {
                         children: [
                           CircleAvatar(
                             maxRadius: 50.0,
-                            backgroundImage: const AssetImage(
-                                "assets/images/light/logo.png"),
-                            backgroundColor:
-                                Theme.of(context).primaryColorLight,
+                            backgroundImage: AssetImage(_themeProvider.darkTheme
+                                ? "assets/images/dark/logo.png"
+                                : "assets/images/light/logo.png"),
+                            backgroundColor: Theme.of(context).primaryColor,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 20.0),
@@ -92,19 +96,19 @@ class _AccountPageState extends State<AccountPage> {
                                   ),
                                 ),
                                 Row(
-                                  children: [
+                                  children: const [
                                     Text(
                                       "69",
                                       style: TextStyle(
                                         fontSize: 20.0,
                                         fontWeight: FontWeight.bold,
-                                        color: HexColor("#0E0E0E"),
+                                        // color: HexColor("#0E0E0E"),
                                       ),
                                     ),
-                                    const SizedBox(width: 5.0),
+                                    SizedBox(width: 5.0),
                                     Icon(
                                       Icons.remove_red_eye,
-                                      color: HexColor("#0E0E0E"),
+                                      // color: HexColor("#0E0E0E"),
                                     ),
                                   ],
                                 ),

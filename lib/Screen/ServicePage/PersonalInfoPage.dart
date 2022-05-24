@@ -22,7 +22,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -36,7 +36,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
               "Personal Information",
               style: GoogleFonts.acme(
                 fontSize: 30.0,
-                color: HexColor("#0E0E0E"),
+                color: Theme.of(context).primaryColor,
               ),
             ),
           ),
@@ -47,10 +47,10 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
             child: settingContent(
               context,
               "Name",
-              Icon(
+              const Icon(
                 Icons.person_add_alt_1_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
               EditName.id,
             ),
@@ -62,10 +62,10 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
             child: settingContent(
               context,
               "Email",
-              Icon(
+              const Icon(
                 Icons.email_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
               EditEmail.id,
             ),
@@ -77,10 +77,10 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
             child: settingContent(
               context,
               "Password",
-              Icon(
+              const Icon(
                 Icons.lock_outline,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
               EditPassword.id,
             ),
@@ -89,75 +89,70 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
             child: SizedBox(height: 15.0),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Account Type",
-              Icon(
+              const Icon(
                 Icons.no_accounts_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(height: 15.0),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "View Count",
-              Icon(
+              const Icon(
                 Icons.view_array_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(height: 15.0),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Subscription Count",
-              Icon(
+              const Icon(
                 Icons.subscriptions_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(height: 15.0),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Download Count",
-              Icon(
+              const Icon(
                 Icons.download_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(height: 15.0),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
+            child: settingContentWithOut(
               context,
               "Accout Created At",
-              Icon(
+              const Icon(
                 Icons.create_outlined,
                 size: 20.0,
-                color: HexColor("#0E0E0E"),
+                // color: HexColor("#0E0E0E"),
               ),
-              "",
             ),
           ),
         ],

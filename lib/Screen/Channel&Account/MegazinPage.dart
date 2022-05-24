@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:zena/module/BuildLogoList.dart';
 import 'package:zena/module/contConst.dart';
 
+import '../../ThemeData/theme_preference.dart';
 import '../../module/ChannelDescription.dart';
 import '../../module/DialogBox_2.dart';
 import '../../module/ServicePageConst.dart';
@@ -21,8 +23,9 @@ class MegazinPage extends StatefulWidget {
 class _MegazinPageState extends State<MegazinPage> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -34,7 +37,7 @@ class _MegazinPageState extends State<MegazinPage> {
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),
             leading: leadingIcon(context),
             centerTitle: true,
-            title: logoImage(),
+            title: logoImage(_themeProvider.darkTheme),
             actions: [
               DialogBoxForVerElip(),
             ],

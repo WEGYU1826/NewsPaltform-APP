@@ -1,12 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:zena/module/ChannelDescription.dart';
 import 'package:zena/module/ServicePageConst.dart';
 import 'package:zena/module/contConst.dart';
 
+import '../../ThemeData/theme_preference.dart';
 import '../../module/DialogBox_2.dart';
 import '../../module/MainContaint.dart';
 
@@ -21,8 +22,9 @@ class ChannelPage extends StatefulWidget {
 class _ChannelPageState extends State<ChannelPage> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -34,7 +36,7 @@ class _ChannelPageState extends State<ChannelPage> {
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),
             centerTitle: true,
             leading: leadingIcon(context),
-            title: logoImage(),
+            title: logoImage(_themeProvider.darkTheme),
             actions: [
               DialogBoxForVerElip(),
             ],

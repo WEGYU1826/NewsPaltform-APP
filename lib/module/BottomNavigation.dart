@@ -51,7 +51,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
     final isSelected = index == widget.index;
     return IconTheme(
       data: IconThemeData(
-          color: isSelected ? HexColor("#2E92EE") : HexColor("#0E0E0E")),
+        color:
+            isSelected ? HexColor("#2E92EE") : Theme.of(context).primaryColor,
+      ),
       child: IconButton(
         onPressed: () => widget.onChangedTab!(index!),
         icon: icon!,

@@ -22,7 +22,7 @@ class _EditNameState extends State<EditName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: ModalProgressHUD(
         inAsyncCall: showSpinner,
         child: CustomScrollView(
@@ -35,7 +35,7 @@ class _EditNameState extends State<EditName> {
             const SliverToBoxAdapter(
               child: SizedBox(height: 15.0),
             ),
-            BuildTextFild(hintText: "Name"),
+            BuildTextFild(hintText: "Name", textValue: name),
           ],
         ),
       ),

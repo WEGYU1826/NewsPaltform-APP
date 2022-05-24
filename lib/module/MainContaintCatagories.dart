@@ -1,22 +1,25 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class ChannelCatagorieList extends StatefulWidget {
-  ChannelCatagorieList({Key? key, required this.list}) : super(key: key);
+class MainContaintCatagories extends StatefulWidget {
+  MainContaintCatagories({Key? key, required this.list}) : super(key: key);
   List? list;
+
   @override
-  State<ChannelCatagorieList> createState() => _ChannelCatagorieListState();
+  State<MainContaintCatagories> createState() => _MainContaintCatagoriesState();
 }
 
-class _ChannelCatagorieListState extends State<ChannelCatagorieList> {
+class _MainContaintCatagoriesState extends State<MainContaintCatagories> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return channalCatagoriList(context, widget.list!);
+    return mainContaintCatagories(widget.list!);
   }
 
-  Widget channalCatagoriList(context, list) {
+  Widget mainContaintCatagories(List list) {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
@@ -28,23 +31,23 @@ class _ChannelCatagorieListState extends State<ChannelCatagorieList> {
           });
         },
         child: Padding(
-          padding: const EdgeInsets.only(
-              top: 8.0, left: 20.0, right: 20.0, bottom: 8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
+            height: 25.0,
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColorLight,
               borderRadius: const BorderRadius.all(Radius.circular(20.0)),
             ),
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                  const EdgeInsets.symmetric(horizontal: 7.0, vertical: 7.0),
               child: Text(
                 list[index],
                 style: GoogleFonts.acme(
-                  fontSize: 25.0,
+                  fontSize: 20.0,
                   color: selectedIndex == index
                       ? HexColor("#2E92EE")
-                      : HexColor("#0E0E0E"),
+                      : Theme.of(context).primaryColor,
                 ),
               ),
             ),

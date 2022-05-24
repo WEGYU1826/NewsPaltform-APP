@@ -48,7 +48,7 @@ class _AccountCatagorieState extends State<AccountCatagorie> {
                     fontSize: 25.0,
                     color: selectedIndex == index
                         ? HexColor("#2E92EE")
-                        : HexColor("#0E0E0E"),
+                        : Theme.of(context).primaryColor,
                   ),
                 ),
               ),

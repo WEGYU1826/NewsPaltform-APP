@@ -20,7 +20,7 @@ class _ChangePreferancePageState extends State<ChangePreferancePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor("#E5E5E5"),
+      // backgroundColor: HexColor("#E5E5E5"),
       body: CustomScrollView(
         slivers: [
           BuilSliverAppBar(title: "Change Preferance"),
