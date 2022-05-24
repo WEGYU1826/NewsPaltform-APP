@@ -30,8 +30,8 @@ class _AccountPageState extends State<AccountPage> {
         slivers: [
           SliverAppBar(
             pinned: false,
-            floating: true,
-            snap: true,
+            floating: false,
+            snap: false,
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),
             expandedHeight: 205.0,
             centerTitle: true,
@@ -42,10 +42,9 @@ class _AccountPageState extends State<AccountPage> {
               IconButton(
                 onPressed: () {
                   Navigator.pushNamed(context, SettingPage.id);
-                  _themeProvider.darkTheme = !_themeProvider.darkTheme;
                 },
                 icon: Icon(
-                  Icons.settings,
+                  Icons.settings_outlined,
                   size: 30.0,
                   color: Theme.of(context).primaryColor,
                 ),
@@ -76,12 +75,11 @@ class _AccountPageState extends State<AccountPage> {
                       padding: const EdgeInsets.only(top: 90.0, left: 30.0),
                       child: Row(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             maxRadius: 50.0,
-                            backgroundImage: AssetImage(_themeProvider.darkTheme
-                                ? "assets/images/dark/logo.png"
-                                : "assets/images/light/logo.png"),
-                            backgroundColor: Theme.of(context).primaryColor,
+                            backgroundImage:
+                                AssetImage("assets/images/light/logo.png"),
+                            backgroundColor: Colors.white,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 20.0),

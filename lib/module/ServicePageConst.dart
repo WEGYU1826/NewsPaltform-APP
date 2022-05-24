@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+import 'package:zena/ThemeData/theme_preference.dart';
 
 Padding titleContent(String string) {
   return Padding(
@@ -165,6 +167,50 @@ Padding settingContent(BuildContext context, String str, Icon icon, String id) {
       ),
     ),
   );
+}
+
+Widget displaySwitch(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+    child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Dark Theme",
+              style: GoogleFonts.acme(
+                // color: HexColor("#0E0E0E"),
+                fontSize: 20.0,
+              ),
+            ),
+            const ChangeThemeButtonWidget(),
+          ],
+        ),
+        Divider(
+          height: 0.0,
+          thickness: 1.0,
+          color: HexColor("#C0C0BE"),
+        ),
+      ],
+    ),
+  );
+}
+
+class ChangeThemeButtonWidget extends StatelessWidget {
+  const ChangeThemeButtonWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
+// final provider = Provider.of<ThemeProvider>(context);
+    return Switch.adaptive(
+      value: _themeProvider.darkTheme,
+      onChanged: (value) {
+        _themeProvider.darkTheme = !_themeProvider.darkTheme;
+      },
+    );
+  }
 }
 
 Padding settingContentWithOut(BuildContext context, String str, Icon icon) {

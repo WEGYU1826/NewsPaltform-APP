@@ -3,9 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:zena/Screen/Authentication/LogInScreen.dart';
+import 'package:zena/Screen/Authentication/PrefrenceScreen.dart';
+import 'package:zena/Screen/Authentication/SignUpScreen.dart';
+import 'package:zena/Screen/ServicePage/ChangePreferancePage.dart';
+import 'package:zena/Screen/ServicePage/PersonalInfoPage.dart';
+import 'package:zena/Screen/ServicePage/SettingPage.dart';
 
-import '../ThemeData/theme_preference.dart';
 import 'ServicePageConst.dart';
 
 class DialogBoxForLogoIcons extends StatefulWidget {
@@ -23,10 +27,8 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
   }
 
   IconButton logoIcon(context, icon) {
-    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return IconButton(
       onPressed: () {
-        _themeProvider.darkTheme = !_themeProvider.darkTheme;
         showDialog(
           context: context,
           builder: (context) {
@@ -39,44 +41,50 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "WEGYU",
-                            style: GoogleFonts.acme(
-                              fontSize: 20.0,
-                              color: Theme.of(context).primaryColor,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, PersonalInfoPage.id);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "WEGYU",
+                              style: GoogleFonts.acme(
+                                fontSize: 20.0,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "wegyu@gmail.com",
-                            style: GoogleFonts.acme(
-                              fontSize: 16.0,
-                              color: Theme.of(context).primaryColor,
+                            Text(
+                              "wegyu@gmail.com",
+                              style: GoogleFonts.acme(
+                                fontSize: 16.0,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Icon(
-                        FontAwesomeIcons.user,
-                        size: 20.0,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ],
+                          ],
+                        ),
+                        Icon(
+                          FontAwesomeIcons.user,
+                          size: 20.0,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 10.0),
                   divider(),
                   buidPopUpContent(
                     "Account Setting",
                     Icon(
-                      Icons.settings,
+                      Icons.settings_outlined,
                       size: 20.0,
                       color: Theme.of(context).primaryColor,
                     ),
+                    SettingPage.id,
                   ),
                   buidPopUpContent(
                     "Change Preferance",
@@ -85,32 +93,10 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                       size: 20.0,
                       color: Theme.of(context).primaryColor,
                     ),
+                    ChangePreferancePage.id,
                   ),
                   divider(),
-                  buidPopUpContent(
-                    "Light Theme",
-                    Icon(
-                      Icons.light_mode_outlined,
-                      size: 20.0,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  buidPopUpContent(
-                    "Dark Theme",
-                    Icon(
-                      Icons.dark_mode_outlined,
-                      size: 20.0,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  buidPopUpContent(
-                    "System Theme",
-                    Icon(
-                      Icons.display_settings_outlined,
-                      size: 20.0,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
+                  displaySweitch(),
                   divider(),
                   buidPopUpContent(
                     "Sign Out",
@@ -119,6 +105,7 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                       size: 20.0,
                       color: Theme.of(context).primaryColor,
                     ),
+                    LoginPage.id,
                   ),
                   divider(),
                 ],
@@ -131,11 +118,13 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
     );
   }
 
-  Widget buidPopUpContent(String string, Icon icon) {
+  Widget buidPopUpContent(String string, Icon icon, String id) {
     return Padding(
       padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, id);
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -147,6 +136,28 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
               ),
             ),
             icon,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget displaySweitch() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+      child: GestureDetector(
+        onTap: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Dark Theme",
+              style: GoogleFonts.acme(
+                fontSize: 16.0,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            const ChangeThemeButtonWidget(),
           ],
         ),
       ),

@@ -32,7 +32,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
           buildTabItem(
             index: 2,
-            icon: const Icon(Icons.grid_view_rounded),
+            icon: const Icon(Icons.grid_view_outlined),
           ),
           buildTabItem(
             index: 3,

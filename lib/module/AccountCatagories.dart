@@ -36,7 +36,7 @@ class _AccountCatagorieState extends State<AccountCatagorie> {
                 top: 8.0, left: 28.0, right: 28.0, bottom: 8.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColorLight,
+                color: Theme.of(context).accentColor,
                 borderRadius: const BorderRadius.all(Radius.circular(20.0)),
               ),
               child: Padding(

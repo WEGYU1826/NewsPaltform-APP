@@ -32,7 +32,7 @@ class _ChannelCatagorieListState extends State<ChannelCatagorieList> {
               top: 8.0, left: 20.0, right: 20.0, bottom: 8.0),
           child: Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColorLight,
+              color: Theme.of(context).accentColor,
               borderRadius: const BorderRadius.all(Radius.circular(20.0)),
             ),
             child: Padding(
@@ -44,7 +44,7 @@ class _ChannelCatagorieListState extends State<ChannelCatagorieList> {
                   fontSize: 25.0,
                   color: selectedIndex == index
                       ? HexColor("#2E92EE")
-                      : HexColor("#0E0E0E"),
+                      : Theme.of(context).primaryColor,
                 ),
               ),
             ),

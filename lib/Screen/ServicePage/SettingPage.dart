@@ -60,16 +60,7 @@ class _SettingPageState extends State<SettingPage> {
             ),
           ),
           SliverToBoxAdapter(
-            child: settingContent(
-              context,
-              "Display",
-              const Icon(
-                Icons.wb_sunny_outlined,
-                size: 20.0,
-                // color: HexColor("#0E0E0E"),
-              ),
-              EditDisplay.id,
-            ),
+            child: displaySwitch(context),
           ),
           SliverToBoxAdapter(
             child: settingContent(

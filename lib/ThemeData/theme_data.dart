@@ -86,9 +86,10 @@ class ThemeStyle {
     ThemeData _dark = ThemeData.dark().copyWith(
       scaffoldBackgroundColor: const Color(0xff393E46),
       appBarTheme: const AppBarTheme(
-          elevation: 1.0,
-          iconTheme: IconThemeData(color: Colors.white),
-          color: Colors.black),
+        elevation: 1.0,
+        iconTheme: IconThemeData(color: Colors.white),
+        color: Colors.black,
+      ),
       accentColor: HexColor("#22231B"),
       primaryColor: HexColor("#FEFEFE"),
       brightness: Brightness.dark,
