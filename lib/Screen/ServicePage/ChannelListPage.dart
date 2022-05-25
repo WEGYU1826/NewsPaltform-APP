@@ -52,14 +52,6 @@ class _ChannelListAccordingToTypeState
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 decoration: const BoxDecoration(
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topCenter,
-                  //   end: Alignment.bottomCenter,
-                  //   colors: [
-                  //     HexColor("#C0C0BE"), //begin color
-                  //     HexColor("#E5E5E5"), //end color
-                  //   ],
-                  // ),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0),

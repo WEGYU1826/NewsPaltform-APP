@@ -31,8 +31,12 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            HexColor("#C0C0BE").withOpacity(0.0), //begin color
-            HexColor("#E5E5E5").withOpacity(1), //end color
+            Theme.of(context)
+                .scaffoldBackgroundColor
+                .withOpacity(0.2), //begin color
+            Theme.of(context)
+                .scaffoldBackgroundColor
+                .withOpacity(1), //end color
           ],
         ),
         borderRadius: const BorderRadius.only(

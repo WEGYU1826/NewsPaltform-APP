@@ -35,6 +35,14 @@ class _MainContaintCatagoriesState extends State<MainContaintCatagories> {
           child: Container(
             height: 25.0,
             decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Theme.of(context).accentColor,
+                  offset: const Offset(0, 2),
+                  spreadRadius: 2.0,
+                  blurRadius: 5.0,
+                ),
+              ],
               color: Theme.of(context).accentColor,
               borderRadius: const BorderRadius.all(Radius.circular(20.0)),
             ),

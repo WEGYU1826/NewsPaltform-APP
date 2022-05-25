@@ -33,7 +33,17 @@ class _ChannelCatagorieListState extends State<ChannelCatagorieList> {
           child: Container(
             decoration: BoxDecoration(
               color: Theme.of(context).accentColor,
-              borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Theme.of(context).accentColor,
+                  offset: const Offset(1, 1),
+                  spreadRadius: 2.0,
+                  blurRadius: 5.0,
+                ),
+              ],
             ),
             child: Padding(
               padding:

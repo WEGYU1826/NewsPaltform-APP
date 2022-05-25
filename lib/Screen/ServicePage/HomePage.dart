@@ -8,6 +8,7 @@ import 'package:zena/module/DialogBoxForLogoIcons.dart';
 import 'package:zena/module/MainContaintCatagories.dart';
 import 'package:zena/module/ServicePageConst.dart';
 import 'package:zena/module/contConst.dart';
+import 'package:zena/module/megazin_list_build.dart';
 
 import '../../ThemeData/theme_preference.dart';
 import '../../module/MainContaint.dart';
@@ -49,14 +50,6 @@ class _HomePageState extends State<HomePage> {
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 decoration: const BoxDecoration(
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topCenter,
-                  //   end: Alignment.bottomCenter,
-                  //   colors: [
-                  //     HexColor("#C0C0BE"), //begin color
-                  //     HexColor("#E5E5E5"), //end color
-                  //   ],
-                  // ),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0),
@@ -70,6 +63,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           MainContent(list: container_1),
+          MegazinListBuild(list: container_0),
         ],
       ),
     );

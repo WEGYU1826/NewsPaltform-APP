@@ -52,18 +52,21 @@ class _AccountPageState extends State<AccountPage> {
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                decoration: const BoxDecoration(
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topCenter,
-                  //   end: Alignment.bottomCenter,
-                  //   colors: [
-                  //     HexColor("#C0C0BE"),
-                  //     HexColor("#E5E5E5"), //begin color
-                  //     //end color
-                  //   ],
-                  // ),
-                  // color: HexColor("#C0C0BE"),
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withOpacity(0.2), //begin color
+                      Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withOpacity(1), //begin color
+                      //end color
+                    ],
+                  ),
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(30.0),
                     bottomRight: Radius.circular(30.0),
                   ),

@@ -9,8 +9,13 @@ import 'DialogBox.dart';
 class BuildDialogBox extends StatefulWidget {
   List? list;
   int? index;
-  BuildDialogBox({Key? key, required this.index, required this.list})
-      : super(key: key);
+  String? id;
+  BuildDialogBox({
+    Key? key,
+    required this.index,
+    required this.list,
+    required this.id,
+  }) : super(key: key);
 
   @override
   State<BuildDialogBox> createState() => _BuildDialogBoxState();
@@ -19,17 +24,17 @@ class BuildDialogBox extends StatefulWidget {
 class _BuildDialogBoxState extends State<BuildDialogBox> {
   @override
   Widget build(BuildContext context) {
-    return buildLogoList(context, widget.list!, widget.index!);
+    return buildLogoList(context, widget.list!, widget.index!, widget.id!);
   }
 
-  Widget buildLogoList(context, list, index) {
+  Widget buildLogoList(context, list, index, String id) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
           onTap: () => setState(() {
-            Navigator.pushNamed(context, ChannelPage.id);
+            Navigator.pushNamed(context, id);
           }),
           child: CircleAvatar(
             radius: 15.0,
@@ -40,7 +45,7 @@ class _BuildDialogBoxState extends State<BuildDialogBox> {
         const SizedBox(width: 10.0),
         GestureDetector(
           onTap: () => setState(() {
-            Navigator.pushNamed(context, ChannelPage.id);
+            Navigator.pushNamed(context, id);
           }),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +66,7 @@ class _BuildDialogBoxState extends State<BuildDialogBox> {
           ),
         ),
         const SizedBox(width: 220.0),
-        DialogBox(index: index),
+        DialogBox(index: index, id: id),
       ],
     );
   }

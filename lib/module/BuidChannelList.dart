@@ -35,16 +35,24 @@ class _BuidChannelListState extends State<BuidChannelList> {
               onTap: () {
                 Navigator.pushNamed(context, ChannelPage.id);
               },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).accentColor,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Theme.of(context).accentColor,
+                            offset: const Offset(0, 3),
+                            spreadRadius: 5.0,
+                            blurRadius: 7.0,
+                          ),
+                        ],
+                        // color: Theme.of(context).accentColor,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(30.0),
+                        ),
+                      ),
                       child: ClipRRect(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(30.0),
@@ -54,21 +62,19 @@ class _BuidChannelListState extends State<BuidChannelList> {
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width,
                           fit: BoxFit.cover,
-                          // color: Theme.of(context).primaryColor,
-                          // colorBlendMode: BlendMode.color,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      list[index].name!,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.acme(
-                        fontSize: 20.0,
-                      ),
+                  ),
+                  const SizedBox(height: 5.0),
+                  Text(
+                    list[index].name!,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.acme(
+                      fontSize: 20.0,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

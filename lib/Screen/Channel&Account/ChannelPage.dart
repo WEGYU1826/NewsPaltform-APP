@@ -28,9 +28,9 @@ class _ChannelPageState extends State<ChannelPage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            floating: true,
+            floating: false,
             pinned: false,
-            snap: true,
+            snap: false,
             elevation: 0.0,
             expandedHeight: 320.0,
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),

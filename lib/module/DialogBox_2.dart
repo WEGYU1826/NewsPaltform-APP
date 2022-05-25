@@ -24,10 +24,8 @@ class _DialogBoxForVerElipState extends State<DialogBoxForVerElip> {
   }
 
   Widget buildDialogBox() {
-    ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return IconButton(
       onPressed: () {
-        _themeProvider.darkTheme = !_themeProvider.darkTheme;
         showDialog(
           context: context,
           builder: (context) => AlertDialog(

@@ -7,24 +7,29 @@ import 'package:hexcolor/hexcolor.dart';
 
 class DialogBox extends StatefulWidget {
   int? index;
-  DialogBox({Key? key, required this.index}) : super(key: key);
+  String? id;
+  DialogBox({
+    Key? key,
+    required this.index,
+    required this.id,
+  }) : super(key: key);
 
   @override
   State<DialogBox> createState() => _DialogBoxState();
 }
 
 class _DialogBoxState extends State<DialogBox> {
-  int selectedIndex_1 = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return buildDialogBox(widget.index!);
+    return buildDialogBox(widget.index!, widget.id!);
   }
 
-  Widget buildDialogBox(index) {
+  Widget buildDialogBox(int index, String id) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedIndex_1 = index;
+          selectedIndex = index;
         });
         showDialog(
           context: context,
@@ -32,7 +37,7 @@ class _DialogBoxState extends State<DialogBox> {
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             alignment: Alignment.centerRight,
-            elevation: 0.0,
+            elevation: 2.0,
             content: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,13 +58,14 @@ class _DialogBoxState extends State<DialogBox> {
                     size: 20.0,
                   ),
                 ),
-                buidPopUpContent(
+                goToChannel(
                   "Go to Channel",
                   const Icon(
                     Icons.navigation_outlined,
                     // color: HexColor("#0E0E0E"),
                     size: 20.0,
                   ),
+                  id,
                 ),
                 buidPopUpContent(
                   "Report Issue",
@@ -76,18 +82,43 @@ class _DialogBoxState extends State<DialogBox> {
       },
       child: Icon(
         FontAwesomeIcons.ellipsis,
-        color: selectedIndex_1 == index
+        color: selectedIndex == index
             ? HexColor("#2E92EE")
-            : HexColor("#C0C0BE"),
+            : Theme.of(context).primaryColor,
       ),
     );
   }
 
-  Widget buidPopUpContent(string, icon) {
+  Widget buidPopUpContent(String string, Icon icon) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {},
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            icon,
+            const SizedBox(width: 10.0),
+            Text(
+              string,
+              style: GoogleFonts.acme(
+                fontSize: 16.0,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget goToChannel(String string, Icon icon, String id) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, id);
+        },
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
