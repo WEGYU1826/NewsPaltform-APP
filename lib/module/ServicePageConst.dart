@@ -41,13 +41,11 @@ Image logoImage(bool isDark) {
 Widget authLogo(bool isDark) {
   return Padding(
     padding: const EdgeInsets.only(top: 10.0),
-    child: SizedBox(
-      child: Image.asset(
-        isDark ? "assets/images/dark/logo.png" : "assets/images/light/logo.png",
-        height: 100,
-        width: 100,
-        fit: BoxFit.contain,
-      ),
+    child: Image.asset(
+      isDark ? "assets/images/dark/logo.png" : "assets/images/light/logo.png",
+      height: 100,
+      width: 100,
+      fit: BoxFit.contain,
     ),
   );
 }

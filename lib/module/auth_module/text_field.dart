@@ -28,6 +28,7 @@ class _TextFieldBuildState extends State<TextFieldBuild> {
       onChanged: (value) {
         widget.textValue = value;
       },
+
       decoration: InputDecoration(
         prefixIcon: widget.icon,
         prefixIconColor: HexColor("#2E92EE"),

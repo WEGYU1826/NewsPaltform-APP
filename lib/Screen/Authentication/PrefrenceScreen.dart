@@ -73,17 +73,19 @@ class _PreferencePageState extends State<PreferencePage> {
                             container_4[index].name!,
                             style: GoogleFonts.acme(
                               fontSize: 30.0,
+                              color: HexColor("#FEFEFE"),
                             ),
                           ),
                         ),
                         Visibility(
                           visible:
                               selectedItem.contains(container_4[index].imagURL),
-                          child: const Align(
+                          child: Align(
                             alignment: Alignment.center,
                             child: Icon(
                               Icons.check,
                               size: 30.0,
+                              color: HexColor("#FEFEFE"),
                             ),
                           ),
                         ),

@@ -30,13 +30,25 @@ class ThemeStyle {
 
       textTheme: TextTheme(
           bodyText1: GoogleFonts.acme(
-              color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal),
+            color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
           bodyText2: const TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w400, fontSize: 14),
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
+          ),
           headline1: const TextStyle(
-              fontSize: 96, color: Colors.black, fontWeight: FontWeight.bold),
+            fontSize: 96,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
           headline2: const TextStyle(
-              fontSize: 60, color: Colors.black, fontWeight: FontWeight.w400),
+            fontSize: 60,
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
+          ),
           headline4: GoogleFonts.acme(
               color: Colors.black,
               fontWeight: FontWeight.w600,
@@ -53,9 +65,15 @@ class ThemeStyle {
             letterSpacing: 0.15,
             fontWeight: FontWeight.w400,
           ),
-          subtitle1: GoogleFonts.acme(fontSize: 16, color: Colors.grey),
+          subtitle1: GoogleFonts.acme(
+            fontSize: 16,
+            color: Colors.grey,
+          ),
           subtitle2: GoogleFonts.acme(
-              fontSize: 14, fontWeight: FontWeight.w300, color: Colors.black),
+            fontSize: 14,
+            fontWeight: FontWeight.w300,
+            color: Colors.black,
+          ),
           caption: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w300,
@@ -112,17 +130,44 @@ class ThemeStyle {
       cardColor: Colors.black,
       textTheme: TextTheme(
         bodyText1: GoogleFonts.acme(
-            color: Colors.white, fontWeight: FontWeight.normal, fontSize: 16),
+          color: Colors.white,
+          fontWeight: FontWeight.normal,
+          fontSize: 16,
+        ),
         bodyText2: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.w400, fontSize: 14),
-        headline1: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-        headline2: const TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
-        headline4: GoogleFonts.acme(fontWeight: FontWeight.w600, fontSize: 34),
-        headline5: GoogleFonts.acme(fontSize: 24, fontWeight: FontWeight.w400),
-        subtitle1: const TextStyle(color: Colors.grey, fontSize: 16),
-        subtitle2: const TextStyle(
-            fontSize: 14, fontWeight: FontWeight.w400, color: Colors.white),
-        headline6: GoogleFonts.acme(fontSize: 20, fontWeight: FontWeight.w400),
+          color: Colors.white,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+        ),
+        headline1: const TextStyle(
+          fontSize: 28,
+          fontWeight: FontWeight.bold,
+        ),
+        headline2: const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.w400,
+        ),
+        headline4: GoogleFonts.acme(
+          fontWeight: FontWeight.w600,
+          fontSize: 34,
+        ),
+        headline5: GoogleFonts.acme(
+          fontSize: 24,
+          fontWeight: FontWeight.w400,
+        ),
+        subtitle1: GoogleFonts.acme(
+          color: Colors.grey,
+          fontSize: 16,
+        ),
+        subtitle2: GoogleFonts.acme(
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
+        headline6: GoogleFonts.acme(
+          fontSize: 20,
+          fontWeight: FontWeight.w400,
+        ),
         caption: GoogleFonts.acme(
           fontSize: 12,
           fontWeight: FontWeight.w300,

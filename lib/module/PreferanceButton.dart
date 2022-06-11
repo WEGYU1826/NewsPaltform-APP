@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../Screen/ServicePage/MainPage.dart';
 
@@ -44,6 +45,7 @@ class _PreferanceButtonState extends State<PreferanceButton> {
             string,
             style: GoogleFonts.acme(
               fontSize: 20.0,
+              color: selectedItemNum >= 3 ? HexColor("#FEFEFE") : null,
             ),
           ),
         ),
