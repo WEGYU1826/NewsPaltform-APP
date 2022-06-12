@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart' as provider;
+import 'package:provider/provider.dart';
+import 'package:scoped_model/scoped_model.dart';
 import 'package:zena/Screen/Channel&Account/MegazinPage.dart';
 import 'package:zena/Screen/ServicePage/ChangePreferancePage.dart';
 import 'package:zena/Screen/ServicePage/ChannelListPage.dart';
@@ -16,6 +18,9 @@ import 'package:zena/Screen/ServicePage/SearchPage.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
 import 'package:zena/Test/test_2.dart';
 import 'package:zena/Test/test_3.dart';
+import 'package:zena/Test/test_4.dart';
+import 'package:zena/Test/test_5.dart';
+import 'package:zena/provider/NewsContent.dart';
 import 'Screen/Authentication/LogInScreen.dart';
 import 'Screen/Authentication/PrefrenceScreen.dart';
 import 'Screen/Authentication/SignUpScreen.dart';
@@ -84,6 +89,8 @@ class _MyAppState extends State<MyApp> {
               PreferencePage.id: (context) => PreferencePage(),
               HomePage.id: (context) => HomePage(),
               MainPage.id: (context) => MainPage(),
+              ProviderTest.id: (context) => ProviderTest(),
+              ProviderTestChannel.id: (context) => ProviderTestChannel(),
               TestPage.id: (context) => TestPage(),
               SelectTest.id: (context) => SelectTest(),
               Test.id: (context) => Test(),
