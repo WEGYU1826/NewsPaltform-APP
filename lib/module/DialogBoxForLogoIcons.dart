@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zena/Screen/Authentication/LogInScreen.dart';
-import 'package:zena/Screen/Authentication/PrefrenceScreen.dart';
-import 'package:zena/Screen/Authentication/SignUpScreen.dart';
 import 'package:zena/Screen/ServicePage/ChangePreferancePage.dart';
 import 'package:zena/Screen/ServicePage/PersonalInfoPage.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
