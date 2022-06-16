@@ -32,19 +32,19 @@ import 'Test/test.dart';
 import 'ThemeData/theme_data.dart';
 import 'ThemeData/theme_preference.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
-
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
+void main() {
   runApp(const MyApp());
 }
+
+// Future main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await SystemChrome.setPreferredOrientations([
+//     DeviceOrientation.portraitUp,
+//     DeviceOrientation.portraitDown,
+//   ]);
+
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -77,37 +77,40 @@ class _MyAppState extends State<MyApp> {
       },
       child: provider.Consumer<ThemeProvider>(
         builder: (context, value, child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeStyle.themeData(_themeProvider.darkTheme, context),
-            // theme: ThemeData.light(),
-            initialRoute: OnboardingPage.id,
-            routes: {
-              OnboardingPage.id: (context) => OnboardingPage(),
-              LoginPage.id: (context) => LoginPage(),
-              SignUpPage.id: (context) => SignUpPage(),
-              PreferencePage.id: (context) => PreferencePage(),
-              HomePage.id: (context) => HomePage(),
-              MainPage.id: (context) => MainPage(),
-              ProviderTest.id: (context) => ProviderTest(),
-              ProviderTestChannel.id: (context) => ProviderTestChannel(),
-              TestPage.id: (context) => TestPage(),
-              SelectTest.id: (context) => SelectTest(),
-              Test.id: (context) => Test(),
-              SettingPage.id: (context) => SettingPage(),
-              SearchPage.id: (context) => SearchPage(),
-              AccountPage.id: (context) => AccountPage(),
-              ChannelPage.id: (context) => ChannelPage(),
-              PersonalInfoPage.id: (context) => PersonalInfoPage(),
-              ChangePreferancePage.id: (context) => ChangePreferancePage(),
-              MegazinPage.id: (context) => MegazinPage(),
-              ChannelListAccordingToType.id: (context) =>
-                  ChannelListAccordingToType(),
-              EditName.id: (context) => EditName(),
-              EditEmail.id: (context) => EditEmail(),
-              EditPassword.id: (context) => EditPassword(),
-              EditDisplay.id: (context) => EditDisplay(),
-            },
+          return MultiProvider(
+            providers: [ChangeNotifierProvider(create: (_) => RemoteService())],
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeStyle.themeData(_themeProvider.darkTheme, context),
+              // theme: ThemeData.light(),
+              initialRoute: OnboardingPage.id,
+              routes: {
+                OnboardingPage.id: (context) => OnboardingPage(),
+                LoginPage.id: (context) => LoginPage(),
+                SignUpPage.id: (context) => SignUpPage(),
+                PreferencePage.id: (context) => PreferencePage(),
+                HomePage.id: (context) => HomePage(),
+                MainPage.id: (context) => MainPage(),
+                ProviderTest.id: (context) => ProviderTest(),
+                ProviderTestChannel.id: (context) => ProviderTestChannel(),
+                TestPage.id: (context) => TestPage(),
+                SelectTest.id: (context) => SelectTest(),
+                Test.id: (context) => Test(),
+                SettingPage.id: (context) => SettingPage(),
+                SearchPage.id: (context) => SearchPage(),
+                AccountPage.id: (context) => AccountPage(),
+                ChannelPage.id: (context) => ChannelPage(),
+                PersonalInfoPage.id: (context) => PersonalInfoPage(),
+                ChangePreferancePage.id: (context) => ChangePreferancePage(),
+                MegazinPage.id: (context) => MegazinPage(),
+                ChannelListAccordingToType.id: (context) =>
+                    ChannelListAccordingToType(),
+                EditName.id: (context) => EditName(),
+                EditEmail.id: (context) => EditEmail(),
+                EditPassword.id: (context) => EditPassword(),
+                EditDisplay.id: (context) => EditDisplay(),
+              },
+            ),
           );
         },
       ),

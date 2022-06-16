@@ -2,10 +2,11 @@
 
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:zena/model/news_model.dart';
 
-class RemoteService {
+class RemoteService extends ChangeNotifier {
   Future<List<News>?> getNewsContent() async {
     var client = http.Client();
 
