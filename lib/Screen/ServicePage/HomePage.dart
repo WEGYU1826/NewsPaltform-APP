@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           MainContent(list: container_1),
-          MegazinListBuild(list: container_0),
+          // MegazinListBuild(list: container_0),
         ],
       ),
     );

@@ -9,12 +9,12 @@ import 'package:zena/model/news_model.dart';
 class RemoteService extends ChangeNotifier {
   Future<List<News>?> getNewsContent() async {
     var client = http.Client();
-
     var uri = Uri.parse('https://zena-api-dev.herokuapp.com/api/v1/news');
     var response = await client.get(uri);
     if (response.statusCode == 200) {
       var json = response.body;
       return newsModelFromJson(json).data!.news;
     }
+    return null;
   }
 }

@@ -15,5 +15,6 @@ class RemoteServiceChannel {
       var json = response.body;
       return channelModelFromJson(json).data!.doc;
     }
+    return null;
   }
 }
