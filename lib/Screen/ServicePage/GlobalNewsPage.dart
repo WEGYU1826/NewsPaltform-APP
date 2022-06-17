@@ -68,7 +68,7 @@ class _GlobalNewsPageState extends State<GlobalNewsPage> {
               ),
             ),
           ),
-          MainContent(list: container_2),
+          MainContent(),
         ],
       ),
     );

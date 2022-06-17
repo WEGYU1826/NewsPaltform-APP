@@ -27,7 +27,6 @@ class _MainPageState extends State<MainPage> {
 
   final page = <Widget>[
     const HomePage(),
-    const GlobalNewsPage(),
     const ChannelListAccordingToType(),
     const SearchPage(),
     const AccountPage(),

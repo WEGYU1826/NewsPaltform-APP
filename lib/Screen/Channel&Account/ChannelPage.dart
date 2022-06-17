@@ -52,7 +52,7 @@ class _ChannelPageState extends State<ChannelPage> {
               ),
             ),
           ),
-          MainContent(list: container_1),
+          MainContent(),
         ],
       ),
     );

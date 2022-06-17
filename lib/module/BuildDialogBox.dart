@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
+import 'package:zena/model/news_model.dart';
 
 import 'DialogBox.dart';
 
 class BuildDialogBox extends StatefulWidget {
-  List? list;
+  List<News>? list;
   int? index;
   String? id;
   BuildDialogBox({
@@ -39,7 +39,7 @@ class _BuildDialogBoxState extends State<BuildDialogBox> {
           child: CircleAvatar(
             radius: 15.0,
             backgroundColor: Theme.of(context).primaryColor,
-            backgroundImage: AssetImage(list[index].avatorImagURL!),
+            backgroundImage: NetworkImage(list[index].publisherChannel.logo),
           ),
         ),
         const SizedBox(width: 10.0),

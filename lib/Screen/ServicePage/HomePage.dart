@@ -13,6 +13,16 @@ import 'package:zena/module/megazin_list_build.dart';
 import '../../ThemeData/theme_preference.dart';
 import '../../module/MainContaint.dart';
 
+enum ContentCatagory {
+  forYou,
+  treading,
+  politics,
+  business,
+  sports,
+  art,
+  entertainments,
+}
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
   static const String id = "home_page";
@@ -22,6 +32,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  ContentCatagory? contentCatagory;
+
   @override
   Widget build(BuildContext context) {
     ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
@@ -62,8 +74,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          MainContent(list: container_1),
-          // MegazinListBuild(list: container_0),
+          MainContent(),
+          // MegazinListBuild(),
         ],
       ),
     );

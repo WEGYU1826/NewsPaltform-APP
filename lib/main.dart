@@ -36,16 +36,6 @@ void main() {
   runApp(const MyApp());
 }
 
-// Future main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await SystemChrome.setPreferredOrientations([
-//     DeviceOrientation.portraitUp,
-//     DeviceOrientation.portraitDown,
-//   ]);
-
-//   runApp(const MyApp());
-// }
-
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
   static const String title = 'Light & Dark Theme';

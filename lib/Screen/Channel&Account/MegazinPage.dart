@@ -55,7 +55,7 @@ class _MegazinPageState extends State<MegazinPage> {
             ),
           ),
           // BuildLogoList(list: container_0),
-          MegazinListBuild(list: container_0),
+          MegazinListBuild(),
         ],
       ),
     );

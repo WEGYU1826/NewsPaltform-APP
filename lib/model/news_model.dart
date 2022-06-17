@@ -101,7 +101,7 @@ class News {
             ? null
             : PublisherChannel.fromJson(json["publisherChannel"]),
         locationType: locationTypeValues.map![json["locationType"]],
-        poster: json["poster"],
+        poster: 'https://zena-api-dev.herokuapp.com/${json["poster"]}',
         slug: json["slug"],
         newsId: json["id"],
         size: json["size"],
@@ -147,18 +147,21 @@ final keyWordValues = EnumValues({
   "keyWordC5": KeyWord.KEY_WORD_C5
 });
 
-enum LocationType { LOCAL }
+enum LocationType { local }
 
-final locationTypeValues = EnumValues({"local": LocationType.LOCAL});
+final locationTypeValues = EnumValues({"local": LocationType.local});
 
-enum NewsType { MAGAZINE, ARTICLE }
+enum NewsType {
+  magazine,
+  article,
+}
 
 final newsTypeValues =
-    EnumValues({"article": NewsType.ARTICLE, "magazine": NewsType.MAGAZINE});
+    EnumValues({"article": NewsType.article, "magazine": NewsType.magazine});
 
-enum PriceType { FREE }
+enum PriceType { free }
 
-final priceTypeValues = EnumValues({"free": PriceType.FREE});
+final priceTypeValues = EnumValues({"free": PriceType.free});
 
 class PublisherChannel {
   PublisherChannel({
@@ -179,7 +182,7 @@ class PublisherChannel {
       PublisherChannel(
         id: json["_id"],
         name: json["name"],
-        logo: json["logo"],
+        logo: 'https://zena-api-dev.herokuapp.com/${json["logo"]}',
         priceType: priceTypeValues.map![json["priceType"]],
         publisherChannelId: json["id"],
       );

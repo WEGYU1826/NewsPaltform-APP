@@ -125,7 +125,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
             ),
           ),
-          MainContent(list: container_1)
+          MainContent()
         ],
       ),
     );

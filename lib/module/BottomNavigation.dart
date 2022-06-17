@@ -24,23 +24,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
         children: [
           buildTabItem(
             index: 0,
-            icon: const Icon(Icons.home_outlined),
+            icon: const Icon(Icons.home_outlined, size: 30.0),
           ),
           buildTabItem(
             index: 1,
-            icon: const Icon(FontAwesomeIcons.earthAfrica),
+            icon: const Icon(Icons.grid_view_outlined, size: 30.0),
           ),
           buildTabItem(
             index: 2,
-            icon: const Icon(Icons.grid_view_outlined),
+            icon: const Icon(Icons.search, size: 30.0),
           ),
           buildTabItem(
             index: 3,
-            icon: const Icon(Icons.search),
-          ),
-          buildTabItem(
-            index: 4,
-            icon: const Icon(FontAwesomeIcons.user),
+            icon: const Icon(FontAwesomeIcons.user, size: 30.0),
           ),
         ],
       ),

@@ -8,9 +8,17 @@ import 'package:zena/module/ChannalCatagoriList.dart';
 import 'package:zena/module/contConst.dart';
 
 import '../../ThemeData/theme_preference.dart';
+import '../../model/channel_model.dart';
 import '../../module/BuidChannelList.dart';
 import '../../module/DialogBoxForLogoIcons.dart';
 import '../../module/ServicePageConst.dart';
+import '../../provider/ChanneContentl.dart';
+
+enum ChannelCatagory {
+  magazine,
+  newsPaper,
+  article,
+}
 
 class ChannelListAccordingToType extends StatefulWidget {
   const ChannelListAccordingToType({Key? key}) : super(key: key);
@@ -24,6 +32,7 @@ class ChannelListAccordingToType extends StatefulWidget {
 class _ChannelListAccordingToTypeState
     extends State<ChannelListAccordingToType> {
   int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
@@ -64,7 +73,7 @@ class _ChannelListAccordingToTypeState
               ),
             ),
           ),
-          BuidChannelList(list: container_3),
+          BuidChannelList(),
         ],
       ),
     );

@@ -99,7 +99,7 @@ class Doc {
         name: json["name"],
         email: json["email"],
         description: json["description"],
-        logo: json["logo"],
+        logo: 'https://zena-api-dev.herokuapp.com/${json["logo"]}',
         address: json["address"],
         city: cityValues.map![json["city"]],
         phoneNumber: json["phoneNumber"],

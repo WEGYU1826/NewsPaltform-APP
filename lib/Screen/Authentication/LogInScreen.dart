@@ -2,16 +2,12 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:zena/Screen/Authentication/SignUpScreen.dart';
-import 'package:zena/module/auth_module/auth_button.dart';
 import 'package:zena/module/auth_module/other_auth.dart';
-import 'package:zena/module/auth_module/password_text_field.dart';
 import 'package:zena/module/auth_module/rich_text.dart';
-import 'package:zena/module/auth_module/text_field.dart';
 
 import '../../ThemeData/theme_preference.dart';
 import '../../module/ServicePageConst.dart';

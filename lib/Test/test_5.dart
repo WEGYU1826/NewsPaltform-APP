@@ -77,6 +77,7 @@ class _ProviderTestState extends State<ProviderTestChannel> {
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),
+                        Image.network(channelModels![index].logo!),
                       ],
                     ),
                   ),
