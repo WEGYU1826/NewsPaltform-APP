@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:zena/Screen/ServicePage/HomePage.dart';
 
 class MainContaintCatagories extends StatefulWidget {
   MainContaintCatagories({Key? key, required this.list}) : super(key: key);
@@ -14,20 +15,22 @@ class MainContaintCatagories extends StatefulWidget {
 
 class _MainContaintCatagoriesState extends State<MainContaintCatagories> {
   int selectedIndex = 0;
+  late ContentCatagory catagory;
   @override
   Widget build(BuildContext context) {
-    return mainContaintCatagories(widget.list!);
+    return mainContaintCatagories(context);
   }
 
-  Widget mainContaintCatagories(List list) {
+  Widget mainContaintCatagories(BuildContext context) {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
-      itemCount: list.length,
+      itemCount: channelCatagoryList.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
           setState(() {
             selectedIndex = index;
+            catagory = channelCatagoryList[index]['catagories'];
           });
         },
         child: Padding(
@@ -50,7 +53,7 @@ class _MainContaintCatagoriesState extends State<MainContaintCatagories> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 7.0, vertical: 7.0),
               child: Text(
-                list[index],
+                channelCatagoryList[index]['title'],
                 style: GoogleFonts.acme(
                   fontSize: 20.0,
                   color: selectedIndex == index

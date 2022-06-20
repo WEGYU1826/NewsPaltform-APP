@@ -2,6 +2,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -23,10 +24,12 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
-  String? email;
-  String? password;
   bool hidePassword = true;
   bool showSpinner = false;
+  bool _isLoading = false;
+
+  final _emailFieldController = TextEditingController();
+  final _passwordFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -51,13 +54,13 @@ class _LoginPageState extends State<LoginPage> {
                         "Login to Get Your Personalized News Daily"),
                     const SizedBox(height: 40.0),
                     TextFormField(
+                      controller: _emailFieldController,
                       keyboardType: TextInputType.emailAddress,
+                      textInputAction: TextInputAction.next,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
-                      onChanged: (value) {
-                        email = value;
-                      },
+                      onFieldSubmitted: (term) {},
                       validator: (value) {
                         if (value!.isEmpty ||
                             !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,5}')
@@ -98,14 +101,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 10.0),
                     TextFormField(
+                      controller: _passwordFieldController,
                       obscureText: hidePassword,
                       keyboardType: TextInputType.visiblePassword,
+                      textInputAction: TextInputAction.done,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                       ),
-                      onChanged: (value) {
-                        password = value;
-                      },
+                      onFieldSubmitted: (term) {},
                       validator: (value) {
                         if (value!.isEmpty ||
                             !RegExp(r'^[A-Za-z0-9!@#$%*+-/~?<>].{8,20}$')

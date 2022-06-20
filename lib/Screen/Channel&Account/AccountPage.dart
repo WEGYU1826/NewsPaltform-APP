@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
 import 'package:zena/module/AccountCatagories.dart';
 import 'package:zena/module/contConst.dart';
+import 'package:zena/module/content_build.dart';
 
 import '../../ThemeData/theme_preference.dart';
 import '../../module/MainContaint.dart';
@@ -125,7 +126,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
             ),
           ),
-          MainContent()
+          const ContentBuild()
         ],
       ),
     );

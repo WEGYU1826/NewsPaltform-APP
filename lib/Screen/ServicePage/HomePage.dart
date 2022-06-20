@@ -4,14 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
+import 'package:zena/model/news_model.dart';
 import 'package:zena/module/DialogBoxForLogoIcons.dart';
 import 'package:zena/module/MainContaintCatagories.dart';
 import 'package:zena/module/ServicePageConst.dart';
 import 'package:zena/module/contConst.dart';
-import 'package:zena/module/megazin_list_build.dart';
+import 'package:zena/module/content_catagories/business.dart';
+import 'package:zena/module/content_catagories/entertainments.dart';
+import 'package:zena/module/content_catagories/healths.dart';
+import 'package:zena/module/content_catagories/politics.dart';
+import 'package:zena/module/content_catagories/sports.dart';
+import 'package:zena/module/content_catagories/technologys.dart';
+import 'package:zena/module/content_catagories/the_indiv_channel_content.dart';
 
 import '../../ThemeData/theme_preference.dart';
 import '../../module/MainContaint.dart';
+import '../../module/content_build.dart';
 
 enum ContentCatagory {
   forYou,
@@ -19,9 +27,54 @@ enum ContentCatagory {
   politics,
   business,
   sports,
-  art,
+  healths,
+  technologys,
   entertainments,
 }
+
+final contentCatagoriesValues = EnumValues({
+  'politics': ContentCatagory.politics,
+  'business': ContentCatagory.business,
+  'Sport': ContentCatagory.sports,
+  'health': ContentCatagory.healths,
+  'technology': ContentCatagory.healths,
+  'Entertainment': ContentCatagory.entertainments
+});
+
+List<Map<String, dynamic>> channelCatagoryList = [
+  {
+    'title': 'For You',
+    'catagories': ContentCatagory.forYou,
+  },
+  {
+    'title': 'Treading',
+    'catagories': ContentCatagory.treading,
+  },
+  {
+    'title': 'Politics',
+    'catagories': ContentCatagory.politics,
+  },
+  {
+    'title': 'Business',
+    'catagories': ContentCatagory.business,
+  },
+  {
+    'title': 'Sports',
+    'catagories': ContentCatagory.sports,
+  },
+  {
+    'title': 'Entertainments',
+    'catagories': ContentCatagory.entertainments,
+  },
+  {
+    'title': 'Healths',
+    'catagories': ContentCatagory.healths,
+  },
+  {
+    'title': 'Technologys',
+    'catagories': ContentCatagory.technologys,
+  },
+];
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,8 +85,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ContentCatagory? contentCatagory;
-
   @override
   Widget build(BuildContext context) {
     ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
@@ -74,8 +125,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          MainContent(),
-          // MegazinListBuild(),
+          // MainContent(),
+          const IndivisualChannelTest(),
         ],
       ),
     );

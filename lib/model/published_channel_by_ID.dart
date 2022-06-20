@@ -2,31 +2,29 @@
 
 import 'dart:convert';
 
-ChannelModel channelModelFromJson(String str) =>
-    ChannelModel.fromJson(json.decode(str));
+GetPublishedChannelById getPublishedChannelByIdFromJson(String str) =>
+    GetPublishedChannelById.fromJson(json.decode(str));
 
-String channelModelToJson(ChannelModel data) => json.encode(data.toJson());
+String getPublishedChannelByIdToJson(GetPublishedChannelById data) =>
+    json.encode(data.toJson());
 
-class ChannelModel {
-  ChannelModel({
+class GetPublishedChannelById {
+  GetPublishedChannelById({
     this.status,
-    this.results,
     this.data,
   });
 
   final String? status;
-  final int? results;
   final Data? data;
 
-  factory ChannelModel.fromJson(Map<String, dynamic> json) => ChannelModel(
+  factory GetPublishedChannelById.fromJson(Map<String, dynamic> json) =>
+      GetPublishedChannelById(
         status: json["status"],
-        results: json["results"],
         data: Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
         "status": status,
-        "results": results,
         "data": data!.toJson(),
       };
 }
@@ -36,14 +34,14 @@ class Data {
     this.doc,
   });
 
-  final List<Doc>? doc;
+  final Doc? doc;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        doc: List<Doc>.from(json["doc"].map((x) => Doc.fromJson(x))),
+        doc: Doc.fromJson(json["doc"]),
       );
 
   Map<String, dynamic> toJson() => {
-        "doc": List<dynamic>.from(doc!.map((x) => x.toJson())),
+        "doc": doc!.toJson(),
       };
 }
 
@@ -65,13 +63,14 @@ class Doc {
     this.priceType,
     this.newsType,
     this.slug,
+    this.v,
     this.publishedContentCount,
     this.subscriberCount,
     this.docId,
   });
 
   final DateTime? createdDate;
-  late final List<String>? category;
+  final List<String>? category;
   final int? earnings;
   final bool? active;
   final String? id;
@@ -80,12 +79,13 @@ class Doc {
   final String? description;
   final String? logo;
   final String? address;
-  final City? city;
+  final String? city;
   final String? phoneNumber;
   final String? webpage;
-  final PriceType? priceType;
-  final NewsType? newsType;
+  final String? priceType;
+  final String? newsType;
   final String? slug;
+  final int? v;
   final int? publishedContentCount;
   final int? subscriberCount;
   final String? docId;
@@ -99,14 +99,15 @@ class Doc {
         name: json["name"],
         email: json["email"],
         description: json["description"],
-        logo: 'https://zena-api-dev.herokuapp.com/${json["logo"]}',
+        logo: json["logo"],
         address: json["address"],
-        city: cityValues.map![json["city"]],
+        city: json["city"],
         phoneNumber: json["phoneNumber"],
         webpage: json["webpage"],
-        priceType: priceTypeValues.map![json["priceType"]],
-        newsType: newsTypeValues.map![json["newsType"]],
+        priceType: json["priceType"],
+        newsType: json["newsType"],
         slug: json["slug"],
+        v: json["__v"],
         publishedContentCount: json["publishedContentCount"],
         subscriberCount: json["subscriberCount"],
         docId: json["id"],
@@ -123,42 +124,15 @@ class Doc {
         "description": description,
         "logo": logo,
         "address": address,
-        "city": cityValues.reverse![city],
+        "city": city,
         "phoneNumber": phoneNumber,
         "webpage": webpage,
-        "priceType": priceTypeValues.reverse![priceType],
-        "newsType": newsTypeValues.reverse![newsType],
+        "priceType": priceType,
+        "newsType": newsType,
         "slug": slug,
+        "__v": v,
         "publishedContentCount": publishedContentCount,
         "subscriberCount": subscriberCount,
         "id": docId,
       };
-}
-
-enum City { addisAbaba }
-
-final cityValues = EnumValues({"Addis Ababa": City.addisAbaba});
-
-enum NewsType { article, magazine, newspaper }
-
-final newsTypeValues = EnumValues({
-  "article": NewsType.article,
-  "magazine": NewsType.magazine,
-  "newspaper": NewsType.newspaper,
-});
-
-enum PriceType { free }
-
-final priceTypeValues = EnumValues({"free": PriceType.free});
-
-class EnumValues<T> {
-  Map<String, T>? map;
-  Map<T, String>? reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String>? get reverse {
-    reverseMap ??= map!.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

@@ -72,8 +72,7 @@ class _ProviderTestState extends State<ProviderTestChannel> {
                           ),
                         ),
                         Text(
-                          channelModels![index].subscriberCount!.toString() ??
-                              '',
+                          channelModels![index].subscriberCount!.toString(),
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),

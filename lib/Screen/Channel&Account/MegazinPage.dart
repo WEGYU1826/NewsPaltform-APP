@@ -6,7 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zena/module/BuildLogoList.dart';
 import 'package:zena/module/contConst.dart';
-import 'package:zena/module/megazin_list_build.dart';
+import 'package:zena/module/content_build.dart';
 
 import '../../ThemeData/theme_preference.dart';
 import '../../module/ChannelDescription.dart';
@@ -55,7 +55,7 @@ class _MegazinPageState extends State<MegazinPage> {
             ),
           ),
           // BuildLogoList(list: container_0),
-          MegazinListBuild(),
+          const ContentBuild(),
         ],
       ),
     );

@@ -92,7 +92,7 @@ class _MainContentState extends State<MainContent> {
                                   fontWeight: FontWeight.bold,
                                 )),
                             Text(
-                              newsModels![index].publishedDate.toString() ?? "",
+                              newsModels![index].publishedDate.toString(),
                               style: GoogleFonts.acme(
                                   // color: HexColor("#C0C0BE"),
                                   ),
@@ -123,7 +123,7 @@ class _MainContentState extends State<MainContent> {
                               topRight: Radius.circular(30.0),
                             ),
                             child: Image.network(
-                              newsModels![index].poster! ?? "",
+                              newsModels![index].poster!,
                               height: 150.0,
                               width: double.infinity,
                               fit: BoxFit.cover,
@@ -134,7 +134,7 @@ class _MainContentState extends State<MainContent> {
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Text(
-                              newsModels![index].title! ?? "",
+                              newsModels![index].title!,
                               style: GoogleFonts.acme(
                                 fontSize: 29.0,
                                 fontWeight: FontWeight.bold,
@@ -148,7 +148,7 @@ class _MainContentState extends State<MainContent> {
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Text(
-                              newsModels![index].description! ?? "",
+                              newsModels![index].description!,
                               style: GoogleFonts.acme(
                                 fontSize: 16.0,
                               ),
@@ -163,8 +163,7 @@ class _MainContentState extends State<MainContent> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Text(
-                                  newsModels![index].viewCount!.toString() ??
-                                      "",
+                                  newsModels![index].viewCount!.toString(),
                                   style: TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
