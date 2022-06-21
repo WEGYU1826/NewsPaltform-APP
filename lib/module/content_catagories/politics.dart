@@ -44,7 +44,7 @@ class _PoliticsCatagoriesState extends State<PoliticsCatagories> {
     return Visibility(
       visible: isLoaded,
       replacement: Center(
-        child: SpinKitPouringHourGlassRefined(
+        child: SpinKitDualRing(
           color: HexColor('##2E92EE'),
           size: 50.0,
         ),

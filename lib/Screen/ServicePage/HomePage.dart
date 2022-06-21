@@ -150,14 +150,16 @@ class _HomePageState extends State<HomePage>
                     controller: _tabController,
                     isScrollable: true,
                     onTap: _handleTabTapped,
-                    labelColor: Theme.of(context).primaryColor,
+                    labelColor: HexColor("#2E92EE"),
+                    labelStyle: GoogleFonts.acme(fontSize: 20.0),
                     indicatorWeight: 1.0,
                     indicatorColor: Theme.of(context).primaryColor,
-                    physics: const BouncingScrollPhysics(),
+                    unselectedLabelColor: Theme.of(context).primaryColor,
+                    unselectedLabelStyle: GoogleFonts.acme(fontSize: 15.0),
                     tabs: [
                       for (String tab in tabs)
                         CustomTab(
-                          width: 70,
+                          width: 78,
                           label: tab,
                         ),
                     ],

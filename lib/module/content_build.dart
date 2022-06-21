@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:zena/model/news_model.dart';
@@ -40,8 +41,12 @@ class _ContentBuildState extends State<ContentBuild> {
   Widget build(BuildContext context) {
     return Visibility(
       visible: isLoaded,
-      replacement: const Center(
-        child: CircularProgressIndicator(),
+      replacement: Center(
+        child: SpinKitDualRing(
+          // lineWidth: 2.0,
+          color: HexColor('#2E92EE'),
+          size: 50.0,
+        ),
       ),
       child: ListView.builder(
         primary: false,

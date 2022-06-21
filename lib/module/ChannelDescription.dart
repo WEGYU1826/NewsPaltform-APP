@@ -51,14 +51,17 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 90.0),
-            child: Image.network(
-              string,
-              fit: BoxFit.cover,
-              height: 150.0,
-              width: 150.0,
+            child: Center(
+              child: Image.network(
+                string,
+                fit: BoxFit.cover,
+                height: 150.0,
+                width: 150.0,
+              ),
             ),
           ),
           Text(
@@ -78,7 +81,7 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
                 ? subscription(context, "SUBSCRIBE", subscribe)
                 : subscription(context, "UNSUBSCRIBE", subscribe),
           ),
-          ChannalCatagorie(contentID: widget.id),
+          // ChannalCatagorie(contentID: widget.id),
         ],
       ),
     );

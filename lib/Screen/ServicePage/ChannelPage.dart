@@ -1,5 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zena/module/channel_catagory/article.dart';
@@ -75,10 +78,12 @@ class _ChannelPageState extends State<ChannelPageWithCatagories>
                     controller: _tabController,
                     isScrollable: true,
                     onTap: _handleTabTapped,
-                    labelColor: Theme.of(context).primaryColor,
+                    labelColor: HexColor("#2E92EE"),
+                    labelStyle: GoogleFonts.acme(fontSize: 20.0),
                     indicatorWeight: 1.0,
                     indicatorColor: Theme.of(context).primaryColor,
-                    physics: const BouncingScrollPhysics(),
+                    unselectedLabelColor: Theme.of(context).primaryColor,
+                    unselectedLabelStyle: GoogleFonts.acme(fontSize: 15.0),
                     tabs: [
                       for (String tab in tabs)
                         CustomTab(

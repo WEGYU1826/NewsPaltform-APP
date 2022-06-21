@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
-import 'package:zena/module/DialogBox.dart';
-import 'package:zena/provider/news_catagories/TreadingContent.dart';
+import 'package:zena/provider/indivsual_channel.dart/the_channel_content_catagory.dart';
 
-import '../../model/news_model.dart';
+import '../../../Screen/Channel&Account/ChannelPage.dart';
+import '../../../model/news_model.dart';
+import '../../DialogBox.dart';
 
-class TreadingCatagories extends StatefulWidget {
-  const TreadingCatagories({Key? key}) : super(key: key);
+class TechnologyChannelDataID extends StatefulWidget {
+  String? contentID;
+  TechnologyChannelDataID({Key? key, required this.contentID})
+      : super(key: key);
 
   @override
-  State<TreadingCatagories> createState() => _TreadingCatagoriesState();
+  State<TechnologyChannelDataID> createState() =>
+      _TechnologyChannelDataIDState();
 }
 
-class _TreadingCatagoriesState extends State<TreadingCatagories> {
+class _TechnologyChannelDataIDState extends State<TechnologyChannelDataID> {
   List<News>? contentModels;
   var isLoaded = false;
 
@@ -26,8 +29,8 @@ class _TreadingCatagoriesState extends State<TreadingCatagories> {
   }
 
   getData() async {
-    contentModels =
-        (await RemoteService().getTreadingNewsContent()) as List<News>;
+    contentModels = (await RemoteService()
+        .getChannelNewsContentByIdTechnology(widget.contentID!)) as List<News>;
     if (contentModels != null) {
       setState(() {
         isLoaded = true;

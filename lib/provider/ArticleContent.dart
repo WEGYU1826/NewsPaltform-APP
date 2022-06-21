@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:zena/model/channel_model.dart';
-import 'indivsual_channel.dart/the_channel_Politics_content.dart';
+import 'indivsual_channel.dart/the_channel_content_catagory.dart';
 
 class RemoteServiceChannel {
   Future<List<Doc>?> getArticleChannelContent() async {

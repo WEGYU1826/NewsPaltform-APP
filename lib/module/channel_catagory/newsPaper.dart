@@ -43,7 +43,7 @@ class _NewsPaperCannelCatagoriesState extends State<NewsPaperCannelCatagories> {
         // SpinKitDualRing
         // SpinKitThreeInOut
         // SpinKitPouringHourGlass
-        child: SpinKitPouringHourGlassRefined(
+        child: SpinKitDualRing(
           color: HexColor('##2E92EE'),
           size: 50.0,
         ),

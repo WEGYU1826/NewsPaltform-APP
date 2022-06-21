@@ -40,8 +40,8 @@ class _BusinessCatagoriesState extends State<BusinessCatagories> {
     return Visibility(
       visible: isLoaded,
       replacement: Center(
-        child: SpinKitPouringHourGlassRefined(
-          color: HexColor('##2E92EE'),
+        child: SpinKitDualRing(
+          color: HexColor('#2E92EE'),
           size: 50.0,
         ),
       ),

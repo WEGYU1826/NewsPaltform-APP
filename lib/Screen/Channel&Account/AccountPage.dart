@@ -5,12 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
-import 'package:zena/module/AccountCatagories.dart';
-import 'package:zena/module/contConst.dart';
-import 'package:zena/module/content_build.dart';
 
 import '../../ThemeData/theme_preference.dart';
-import '../../module/MainContaint.dart';
 import '../../module/ServicePageConst.dart';
 import '../ServicePage/HomePage.dart';
 
@@ -57,8 +53,8 @@ class _AccountPageState extends State<AccountPage>
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  pinned: false,
-                  floating: false,
+                  pinned: true,
+                  floating: true,
                   snap: false,
                   backgroundColor: HexColor("#C0C0BE").withOpacity(0),
                   centerTitle: true,
@@ -81,9 +77,12 @@ class _AccountPageState extends State<AccountPage>
                     controller: _tabController,
                     isScrollable: true,
                     onTap: _handleTabTapped,
-                    labelColor: Theme.of(context).primaryColor,
+                    labelColor: HexColor("#2E92EE"),
+                    labelStyle: GoogleFonts.acme(fontSize: 20.0),
                     indicatorWeight: 1.0,
                     indicatorColor: Theme.of(context).primaryColor,
+                    unselectedLabelColor: Theme.of(context).primaryColor,
+                    unselectedLabelStyle: GoogleFonts.acme(fontSize: 15.0),
                     physics: const BouncingScrollPhysics(),
                     tabs: [
                       for (String tab in tabs)

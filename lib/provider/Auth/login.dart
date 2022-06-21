@@ -9,6 +9,7 @@ import 'user.dart';
 // "email": "dagi@dagi.com",
 // "password": "123123123"
 // 'https://zena-api-dev.herokuapp.com/api/v1/customers/login'
+// 'https://zena-api-dev.herokuapp.com/api/v1/customers/login'
 
 class AuthModel extends Model {
   bool _loadingUser = false;
