@@ -1,10 +1,8 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:provider/provider.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:zena/Screen/ServicePage/ChangePreferancePage.dart';
 import 'package:zena/Screen/ServicePage/ChannelListPage.dart';
 import 'package:zena/Screen/ServicePage/EditDisplay.dart';
@@ -24,7 +22,6 @@ import 'Screen/Authentication/LogInScreen.dart';
 import 'Screen/Authentication/PrefrenceScreen.dart';
 import 'Screen/Authentication/SignUpScreen.dart';
 import 'Screen/Channel&Account/AccountPage.dart';
-import 'Screen/Channel&Account/ChannelPage.dart';
 import 'Screen/Onboarding/OnboardingScreen .dart';
 import 'Screen/ServicePage/HomePage.dart';
 import 'Test/test.dart';
@@ -90,7 +87,6 @@ class _MyAppState extends State<MyApp> {
                 AccountPage.id: (context) => AccountPage(),
                 PersonalInfoPage.id: (context) => PersonalInfoPage(),
                 ChangePreferancePage.id: (context) => ChangePreferancePage(),
-                // MegazinPage.id: (context) => MegazinPage(),
                 ChannelListAccordingToType.id: (context) =>
                     ChannelListAccordingToType(),
                 EditName.id: (context) => EditName(),
