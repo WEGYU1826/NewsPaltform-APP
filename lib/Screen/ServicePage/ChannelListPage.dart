@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-
 import '../../ThemeData/theme_preference.dart';
 import '../../model/channel_model.dart';
 import '../../module/DialogBoxForLogoIcons.dart';
@@ -51,7 +50,6 @@ class _ChannelListAccordingToTypeState
   getData() async {
     channelModels =
         (await RemoteServiceChannel().getChannelContent()) as List<Doc>;
-
     if (channelModels != null) {
       setState(() {
         isLoaded = true;
@@ -174,7 +172,17 @@ class _ChannelListAccordingToTypeState
                     padding: const EdgeInsets.all(10.0),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, ChannelPage.id);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => ChannelPage(
+                                      contentID:
+                                          getChannel(catagory)![index].id,
+                                      imageURL:
+                                          getChannel(catagory)![index].logo,
+                                      channelName:
+                                          getChannel(catagory)![index].name,
+                                    )));
                       },
                       child: Column(
                         children: [

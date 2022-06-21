@@ -1,8 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
 import 'package:zena/Screen/ServicePage/ChannelListPage.dart';
-import 'package:zena/Screen/ServicePage/GlobalNewsPage.dart';
+import 'package:zena/Screen/ServicePage/ChannelPage.dart';
 import 'package:zena/Screen/ServicePage/HomePage.dart';
 import 'package:zena/Screen/ServicePage/SearchPage.dart';
 
@@ -27,7 +28,7 @@ class _MainPageState extends State<MainPage> {
 
   final page = <Widget>[
     const HomePage(),
-    const ChannelListAccordingToType(),
+    const ChannelPageWithCatagories(),
     const SearchPage(),
     const AccountPage(),
   ];

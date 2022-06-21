@@ -70,7 +70,7 @@ BackdropFilter backdropFilter(BuildContext context, String string) {
     child: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(string),
+          image: NetworkImage(string),
           fit: BoxFit.cover,
         ),
         borderRadius: const BorderRadius.only(

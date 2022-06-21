@@ -1,28 +1,25 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'package:zena/Screen/ServicePage/SettingPage.dart';
-import 'package:zena/module/AccountCatagories.dart';
-import 'package:zena/module/contConst.dart';
-import 'package:zena/module/content_build.dart';
+import 'package:zena/module/channel_catagory/article.dart';
+import 'package:zena/module/channel_catagory/megazin.dart';
+import 'package:zena/module/channel_catagory/newsPaper.dart';
 
 import '../../ThemeData/theme_preference.dart';
-import '../../module/MainContaint.dart';
+import '../../module/DialogBoxForLogoIcons.dart';
 import '../../module/ServicePageConst.dart';
-import '../ServicePage/HomePage.dart';
+import 'HomePage.dart';
 
-class AccountPage extends StatefulWidget {
-  const AccountPage({Key? key}) : super(key: key);
-  static const String id = "account_page";
+class ChannelPageWithCatagories extends StatefulWidget {
+  const ChannelPageWithCatagories({Key? key}) : super(key: key);
+  static const String id = "channel_page";
 
   @override
-  State<AccountPage> createState() => _AccountPageState();
+  State<ChannelPageWithCatagories> createState() => _ChannelPageState();
 }
 
-class _AccountPageState extends State<AccountPage>
+class _ChannelPageState extends State<ChannelPageWithCatagories>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   @override
@@ -40,9 +37,9 @@ class _AccountPageState extends State<AccountPage>
   @override
   Widget build(BuildContext context) {
     const List<String> tabs = [
-      "Saved",
-      "Recent",
-      "Subscribed",
+      "News Papers",
+      "Magazines",
+      "Articles",
     ];
     ThemeProvider _themeProvider = Provider.of<ThemeProvider>(context);
     return DefaultTabController(
@@ -51,28 +48,25 @@ class _AccountPageState extends State<AccountPage>
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Scaffold(
-          // backgroundColor: HexColor("#E5E5E5"),
+          // backgroundColor: Theme.of(context).accentColor,
           body: NestedScrollView(
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  pinned: false,
-                  floating: false,
                   snap: false,
+                  pinned: true,
+                  floating: true,
+                  elevation: 0.0,
+                  // expandedHeight: 100.0,
                   backgroundColor: HexColor("#C0C0BE").withOpacity(0),
                   centerTitle: true,
-                  elevation: 0.0,
                   leading: leadingIcon(context),
                   title: logoImage(_themeProvider.darkTheme),
                   actions: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, SettingPage.id);
-                      },
+                    DialogBoxForLogoIcons(
                       icon: Icon(
-                        Icons.settings_outlined,
-                        size: 30.0,
+                        FontAwesomeIcons.bars,
                         color: Theme.of(context).primaryColor,
                       ),
                     ),
@@ -98,10 +92,10 @@ class _AccountPageState extends State<AccountPage>
             },
             body: TabBarView(
               controller: _tabController,
-              children: [
-                Container(),
-                Container(),
-                Container(),
+              children: const [
+                NewsPaperCannelCatagories(),
+                MagazinChannelCatagoris(),
+                ArticleChannelCatagories(),
               ],
             ),
           ),
@@ -113,13 +107,13 @@ class _AccountPageState extends State<AccountPage>
   void _handleTabTapped(int index) {
     switch (index) {
       case 0:
-        Container();
+        const NewsPaperCannelCatagories();
         break;
       case 1:
-        Container();
+        const MagazinChannelCatagoris();
         break;
       case 2:
-        Container();
+        const ArticleChannelCatagories();
         break;
     }
   }

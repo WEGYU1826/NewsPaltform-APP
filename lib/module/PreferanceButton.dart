@@ -45,6 +45,7 @@ class _PreferanceButtonState extends State<PreferanceButton> {
             string,
             style: GoogleFonts.acme(
               fontSize: 20.0,
+              fontWeight: FontWeight.bold,
               color: selectedItemNum >= 3 ? HexColor("#FEFEFE") : null,
             ),
           ),

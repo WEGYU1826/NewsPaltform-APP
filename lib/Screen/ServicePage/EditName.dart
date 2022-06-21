@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 import '../../module/BuildSliverAppBar.dart';
 import '../../module/ServicePageConst.dart';
@@ -23,21 +22,18 @@ class _EditNameState extends State<EditName> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: HexColor("#E5E5E5"),
-      body: ModalProgressHUD(
-        inAsyncCall: showSpinner,
-        child: CustomScrollView(
-          slivers: [
-            BuilSliverAppBar(title: 'Edit Name'),
-            const SliverToBoxAdapter(
-              child: SizedBox(height: 15.0),
-            ),
-            EditText(name: "Name"),
-            const SliverToBoxAdapter(
-              child: SizedBox(height: 15.0),
-            ),
-            BuildTextFild(hintText: "Name", textValue: name),
-          ],
-        ),
+      body: CustomScrollView(
+        slivers: [
+          BuilSliverAppBar(title: 'Edit Name'),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15.0),
+          ),
+          EditText(name: "Name"),
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 15.0),
+          ),
+          BuildTextFild(hintText: "Name", textValue: name),
+        ],
       ),
     );
   }

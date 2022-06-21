@@ -28,14 +28,15 @@ class _PreferencePageState extends State<PreferencePage> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeProvider _themeProvider = ThemeProvider();
+    // final ThemeProvider _themeProvider = ThemeProvider();
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                authLogo(_themeProvider.darkTheme),
+                // authLogo(_themeProvider.darkTheme),
+                const SizedBox(height: 40.0),
                 authDescription("Choose Your News Preferance For Better"),
                 StaggeredGridView.countBuilder(
                   padding: const EdgeInsets.all(10.0),
@@ -117,7 +118,9 @@ class _PreferencePageState extends State<PreferencePage> {
                         text: " Terms of Use and Privacy Policy",
                         style: GoogleFonts.acme(
                           color: HexColor("#2E92EE"),
+                          fontSize: 15.0,
                           decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.bold,
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {

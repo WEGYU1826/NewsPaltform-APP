@@ -1,18 +1,31 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zena/module/ChannelDescription.dart';
 import 'package:zena/module/ServicePageConst.dart';
 import 'package:zena/module/contConst.dart';
+import 'package:zena/module/content_catagories/the_indiv_channel_content.dart';
 
 import '../../ThemeData/theme_preference.dart';
+import '../../model/channel_model.dart';
+import '../../module/ChannalCatagories.dart';
 import '../../module/DialogBox_2.dart';
 import '../../module/MainContaint.dart';
+import '../../provider/indivsual_channel.dart/the_channel.dart';
 
 class ChannelPage extends StatefulWidget {
-  const ChannelPage({Key? key}) : super(key: key);
+  String? imageURL;
+  String? contentID;
+  String? channelName;
+  ChannelPage({
+    Key? key,
+    required this.contentID,
+    required this.imageURL,
+    required this.channelName,
+  }) : super(key: key);
   static const String id = "channel_page";
 
   @override
@@ -28,7 +41,7 @@ class _ChannelPageState extends State<ChannelPage> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            floating: false,
+            floating: true,
             pinned: false,
             snap: false,
             elevation: 0.0,
@@ -43,16 +56,16 @@ class _ChannelPageState extends State<ChannelPage> {
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 children: [
-                  backdropFilter(context, "assets/images/channel/Rep.png"),
+                  backdropFilter(context, widget.imageURL!),
                   ChannelDescription(
-                    imageURl: "assets/images/channel/Rep.png",
-                    name: "The Reporter",
+                    imageURl: widget.imageURL!,
+                    name: widget.channelName!,
+                    id: widget.contentID!,
                   ),
                 ],
               ),
             ),
           ),
-          MainContent(),
         ],
       ),
     );

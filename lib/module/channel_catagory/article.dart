@@ -5,17 +5,17 @@ import 'package:hexcolor/hexcolor.dart';
 
 import '../../Screen/Channel&Account/ChannelPage.dart';
 import '../../model/channel_model.dart';
-import '../../provider/MegazinContent.dart';
+import '../../provider/ArticleContent.dart';
 
-class MagazinChannelCatagoris extends StatefulWidget {
-  const MagazinChannelCatagoris({Key? key}) : super(key: key);
+class ArticleChannelCatagories extends StatefulWidget {
+  const ArticleChannelCatagories({Key? key}) : super(key: key);
 
   @override
-  State<MagazinChannelCatagoris> createState() =>
-      _MagazinChannelCatagorisState();
+  State<ArticleChannelCatagories> createState() =>
+      _ArticleChannelCatagoriesState();
 }
 
-class _MagazinChannelCatagorisState extends State<MagazinChannelCatagoris> {
+class _ArticleChannelCatagoriesState extends State<ArticleChannelCatagories> {
   List<Doc>? channelModels;
   var isLoaded = false;
   @override
@@ -26,7 +26,7 @@ class _MagazinChannelCatagorisState extends State<MagazinChannelCatagoris> {
 
   getData() async {
     channelModels =
-        (await RemoteServiceChannel().getMegazinChannelContent()) as List<Doc>;
+        (await RemoteServiceChannel().getArticleChannelContent()) as List<Doc>;
     if (channelModels != null) {
       setState(() {
         isLoaded = true;

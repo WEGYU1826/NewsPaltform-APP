@@ -5,17 +5,17 @@ import 'package:hexcolor/hexcolor.dart';
 
 import '../../Screen/Channel&Account/ChannelPage.dart';
 import '../../model/channel_model.dart';
-import '../../provider/MegazinContent.dart';
+import '../../provider/NewsPeperContent.dart';
 
-class MagazinChannelCatagoris extends StatefulWidget {
-  const MagazinChannelCatagoris({Key? key}) : super(key: key);
+class NewsPaperCannelCatagories extends StatefulWidget {
+  const NewsPaperCannelCatagories({Key? key}) : super(key: key);
 
   @override
-  State<MagazinChannelCatagoris> createState() =>
-      _MagazinChannelCatagorisState();
+  State<NewsPaperCannelCatagories> createState() =>
+      _NewsPaperCannelCatagoriesState();
 }
 
-class _MagazinChannelCatagorisState extends State<MagazinChannelCatagoris> {
+class _NewsPaperCannelCatagoriesState extends State<NewsPaperCannelCatagories> {
   List<Doc>? channelModels;
   var isLoaded = false;
   @override
@@ -25,8 +25,8 @@ class _MagazinChannelCatagorisState extends State<MagazinChannelCatagoris> {
   }
 
   getData() async {
-    channelModels =
-        (await RemoteServiceChannel().getMegazinChannelContent()) as List<Doc>;
+    channelModels = (await RemoteServiceChannel().getNewsPaperChannelContent())
+        as List<Doc>;
     if (channelModels != null) {
       setState(() {
         isLoaded = true;
@@ -39,6 +39,10 @@ class _MagazinChannelCatagorisState extends State<MagazinChannelCatagoris> {
     return Visibility(
       visible: isLoaded,
       replacement: Center(
+        // SpinKitThreeBounce
+        // SpinKitDualRing
+        // SpinKitThreeInOut
+        // SpinKitPouringHourGlass
         child: SpinKitPouringHourGlassRefined(
           color: HexColor('##2E92EE'),
           size: 50.0,

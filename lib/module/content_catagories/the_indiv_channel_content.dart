@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
-import 'package:zena/Screen/Channel&Account/MegazinPage.dart';
+
 import 'package:zena/module/DialogBox.dart';
 
 import '../../model/news_model.dart';
 import '../../provider/indivsual_channel.dart/the_channel_content.dart';
 
 class IndivisualChannelTest extends StatefulWidget {
-  const IndivisualChannelTest({Key? key}) : super(key: key);
+  String? contentID;
+  IndivisualChannelTest({Key? key, required this.contentID}) : super(key: key);
 
   @override
   State<IndivisualChannelTest> createState() => _IndivisualChannelTestState();
@@ -27,7 +29,7 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
 
   getData() async {
     contentModels = (await RemoteService()
-        .getChannelNewsContentById('627ccd8b57aa0050f4290352')) as List<News>;
+        .getChannelNewsContentById(widget.contentID!)) as List<News>;
     if (contentModels != null) {
       setState(() {
         isLoaded = true;
@@ -40,8 +42,11 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
     return SliverToBoxAdapter(
       child: Visibility(
         visible: isLoaded,
-        replacement: const Center(
-          child: CircularProgressIndicator(),
+        replacement: Center(
+          child: SpinKitPouringHourGlassRefined(
+            color: HexColor('##2E92EE'),
+            size: 50.0,
+          ),
         ),
         child: ListView.builder(
           primary: false,
@@ -59,7 +64,20 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(() {
-                                Navigator.pushNamed(context, MegazinPage.id);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => ChannelPage(
+                                              contentID: contentModels![index]
+                                                  .publisherChannel!
+                                                  .id!,
+                                              imageURL: contentModels![index]
+                                                  .publisherChannel!
+                                                  .logo!,
+                                              channelName: contentModels![index]
+                                                  .publisherChannel!
+                                                  .name!,
+                                            )));
                               }),
                               child: CircleAvatar(
                                 onBackgroundImageError:
@@ -76,7 +94,20 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
                             const SizedBox(width: 10.0),
                             GestureDetector(
                               onTap: () => setState(() {
-                                Navigator.pushNamed(context, MegazinPage.id);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => ChannelPage(
+                                              contentID: contentModels![index]
+                                                  .publisherChannel!
+                                                  .id!,
+                                              imageURL: contentModels![index]
+                                                  .publisherChannel!
+                                                  .logo!,
+                                              channelName: contentModels![index]
+                                                  .publisherChannel!
+                                                  .name!,
+                                            )));
                               }),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +134,7 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
                               ),
                             ),
                             const SizedBox(width: 170.0),
-                            DialogBox(index: index, id: MegazinPage.id),
+                            DialogBox(index: index, id: ""),
                           ],
                         ),
                         Padding(
@@ -177,7 +208,20 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
                           children: [
                             GestureDetector(
                               onTap: () => setState(() {
-                                Navigator.pushNamed(context, ChannelPage.id);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => ChannelPage(
+                                              contentID: contentModels![index]
+                                                  .publisherChannel!
+                                                  .id!,
+                                              imageURL: contentModels![index]
+                                                  .publisherChannel!
+                                                  .logo!,
+                                              channelName: contentModels![index]
+                                                  .publisherChannel!
+                                                  .name!,
+                                            )));
                               }),
                               child: CircleAvatar(
                                 radius: 15.0,
@@ -194,7 +238,20 @@ class _IndivisualChannelTestState extends State<IndivisualChannelTest> {
                             const SizedBox(width: 10.0),
                             GestureDetector(
                               onTap: () => setState(() {
-                                Navigator.pushNamed(context, ChannelPage.id);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => ChannelPage(
+                                              contentID: contentModels![index]
+                                                  .publisherChannel!
+                                                  .id!,
+                                              imageURL: contentModels![index]
+                                                  .publisherChannel!
+                                                  .logo!,
+                                              channelName: contentModels![index]
+                                                  .publisherChannel!
+                                                  .name!,
+                                            )));
                               }),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

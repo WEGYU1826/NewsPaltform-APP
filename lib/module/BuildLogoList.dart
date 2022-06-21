@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:zena/Screen/Channel&Account/MegazinPage.dart';
+
 import 'package:zena/module/BuildDialogBox.dart';
 
 class BuildLogoList extends StatefulWidget {
@@ -33,7 +33,7 @@ class _BuildLogoListState extends State<BuildLogoList> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children: [
-                BuildDialogBox(index: index, list: list, id: MegazinPage.id),
+                BuildDialogBox(index: index, list: list, id: ""),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Container(

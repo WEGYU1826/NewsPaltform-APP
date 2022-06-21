@@ -72,7 +72,7 @@ class _MainContentState extends State<MainContent> {
                           radius: 15.0,
                           backgroundColor: Theme.of(context).primaryColor,
                           backgroundImage: NetworkImage(
-                              newsModels![index].publisherChannel!.logo! ?? ""),
+                              newsModels![index].publisherChannel!.logo!),
                         ),
                       ),
                       const SizedBox(width: 10.0),
@@ -83,9 +83,7 @@ class _MainContentState extends State<MainContent> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                                newsModels![index].publisherChannel!.name! ??
-                                    "",
+                            Text(newsModels![index].publisherChannel!.name!,
                                 // textAlign: TextAlign.start,
                                 style: GoogleFonts.acme(
                                   fontSize: 15.0,

@@ -8,10 +8,15 @@ import 'ChannalCatagories.dart';
 import 'contConst.dart';
 
 class ChannelDescription extends StatefulWidget {
-  ChannelDescription({Key? key, required this.imageURl, required this.name})
-      : super(key: key);
+  ChannelDescription({
+    Key? key,
+    required this.imageURl,
+    required this.name,
+    required this.id,
+  }) : super(key: key);
   String? imageURl;
   String? name;
+  String? id;
 
   @override
   State<ChannelDescription> createState() => _ChannelDescriptionState();
@@ -49,9 +54,11 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 90.0),
-            child: Image.asset(
+            child: Image.network(
               string,
               fit: BoxFit.cover,
+              height: 150.0,
+              width: 150.0,
             ),
           ),
           Text(
@@ -71,7 +78,7 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
                 ? subscription(context, "SUBSCRIBE", subscribe)
                 : subscription(context, "UNSUBSCRIBE", subscribe),
           ),
-          ChannalCatagorie(list: label_4),
+          ChannalCatagorie(contentID: widget.id),
         ],
       ),
     );

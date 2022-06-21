@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' as provider;
 import 'package:provider/provider.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:zena/Screen/Channel&Account/MegazinPage.dart';
 import 'package:zena/Screen/ServicePage/ChangePreferancePage.dart';
 import 'package:zena/Screen/ServicePage/ChannelListPage.dart';
 import 'package:zena/Screen/ServicePage/EditDisplay.dart';
@@ -89,10 +88,9 @@ class _MyAppState extends State<MyApp> {
                 SettingPage.id: (context) => SettingPage(),
                 SearchPage.id: (context) => SearchPage(),
                 AccountPage.id: (context) => AccountPage(),
-                ChannelPage.id: (context) => ChannelPage(),
                 PersonalInfoPage.id: (context) => PersonalInfoPage(),
                 ChangePreferancePage.id: (context) => ChangePreferancePage(),
-                MegazinPage.id: (context) => MegazinPage(),
+                // MegazinPage.id: (context) => MegazinPage(),
                 ChannelListAccordingToType.id: (context) =>
                     ChannelListAccordingToType(),
                 EditName.id: (context) => EditName(),

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class RichTextBuild extends StatefulWidget {
@@ -24,7 +25,7 @@ class _RichTextBuildState extends State<RichTextBuild> {
       alignment: Alignment.center,
       child: RichText(
         text: TextSpan(
-          style: const TextStyle(
+          style: GoogleFonts.acme(
             color: Colors.grey,
             fontSize: 14.0,
           ),
@@ -32,10 +33,12 @@ class _RichTextBuildState extends State<RichTextBuild> {
             TextSpan(text: widget.spanText),
             TextSpan(
               text: widget.richText,
-              style: TextStyle(
-                color: HexColor("#2E92EE"),
-                // decoration: TextDecoration.underline,
-              ),
+              style: GoogleFonts.acme(
+                  color: HexColor("#2E92EE"),
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold
+                  // decoration: TextDecoration.underline,
+                  ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   Navigator.pushNamed(context, widget.id!);
