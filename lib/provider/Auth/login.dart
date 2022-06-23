@@ -23,6 +23,7 @@ class AuthModel extends Model {
 
   setUser(User user) {
     final usersBox = Hive.box('user');
+    _loadingUser = false;
     usersBox.put('loggedInUser', user);
   }
 
@@ -82,17 +83,24 @@ class AuthModel extends Model {
     }
   }
 
-  Future<void> signInWithEmail(
+  Future<String> signInWithEmail(
       {required String email, required String password}) async {
     _loadingUser = true;
     notifyListeners();
+    String responses = '';
+
+    print('User email $email and pass $password');
+    print('Sigin the user in');
 
     try {
-      http.Response response = await http.post(Uri.parse('$url/login'),
+      http.Response response = await http.post(Uri.parse('${url}login'),
           body: {'username': email, 'password': password});
 
+      print("repose: " + response.body);
+
       final Map<String, dynamic> authResponse = json.decode(response.body);
-      if (response.statusCode == 200 && authResponse['status'] == 'success') {
+      if (response.statusCode == 200) {
+        // && authResponse['status'] == 'success'
         User user = User(
           id: authResponse['doc']['id'],
           email: email,
@@ -101,16 +109,23 @@ class AuthModel extends Model {
           token: authResponse['token'],
         );
         setUser(user);
-
         setAuthentication(true);
+        responses = 'success';
+        notifyListeners();
       }
+      // responses = 'invalid credential';
       _loadingUser = false;
       notifyListeners();
     } catch (error) {
       print(error);
       _loadingUser = false;
       notifyListeners();
+      print('Done');
+      responses = 'fail';
+      notifyListeners();
     }
+    print('Done a $responses');
+    return responses;
   }
 
   Future<void> logOut() async {

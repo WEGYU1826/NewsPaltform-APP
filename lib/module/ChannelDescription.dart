@@ -71,16 +71,16 @@ class _ChannelDescriptionState extends State<ChannelDescription> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                subscribe = !subscribe;
-              });
-            },
-            child: subscribe
-                ? subscription(context, "SUBSCRIBE", subscribe)
-                : subscription(context, "UNSUBSCRIBE", subscribe),
-          ),
+          // GestureDetector(
+          //   onTap: () {
+          //     setState(() {
+          //       subscribe = !subscribe;
+          //     });
+          //   },
+          //   child: subscribe
+          //       ? subscription(context, "SUBSCRIBE", subscribe)
+          //       : subscription(context, "UNSUBSCRIBE", subscribe),
+          // ),
           // ChannalCatagorie(contentID: widget.id),
         ],
       ),

@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
+import 'package:zena/module/indiv_Content/resecnt.dart';
+import 'package:zena/module/indiv_Content/saved.dart';
+import 'package:zena/module/indiv_Content/suscribed.dart';
 
 import '../../ThemeData/theme_preference.dart';
 import '../../module/ServicePageConst.dart';
@@ -59,7 +62,7 @@ class _AccountPageState extends State<AccountPage>
                   backgroundColor: HexColor("#C0C0BE").withOpacity(0),
                   centerTitle: true,
                   elevation: 0.0,
-                  leading: leadingIcon(context),
+                  // leading: leadingIcon(context),
                   title: logoImage(_themeProvider.darkTheme),
                   actions: [
                     IconButton(
@@ -97,10 +100,10 @@ class _AccountPageState extends State<AccountPage>
             },
             body: TabBarView(
               controller: _tabController,
-              children: [
-                Container(),
-                Container(),
-                Container(),
+              children: const [
+                SavedContent(),
+                RescentContent(),
+                SubscriedContent(),
               ],
             ),
           ),
@@ -112,13 +115,13 @@ class _AccountPageState extends State<AccountPage>
   void _handleTabTapped(int index) {
     switch (index) {
       case 0:
-        Container();
+        const SavedContent();
         break;
       case 1:
-        Container();
+        const RescentContent();
         break;
       case 2:
-        Container();
+        const SubscriedContent();
         break;
     }
   }

@@ -7,6 +7,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:zena/Screen/Channel&Account/ChannelPage.dart';
 
 import 'package:zena/module/DialogBox.dart';
+import 'package:zena/module/read.dart';
 import 'package:zena/provider/news_catagories/politicsContent.dart';
 
 import '../../model/news_model.dart';
@@ -132,7 +133,7 @@ class _PoliticsCatagoriesState extends State<PoliticsCatagories> {
                             ),
                           ),
                           const SizedBox(width: 170.0),
-                          DialogBox(index: index, id: ""),
+                          // DialogBox(index: index, id: ""),
                         ],
                       ),
                       Padding(
@@ -274,7 +275,7 @@ class _PoliticsCatagoriesState extends State<PoliticsCatagories> {
                             ),
                           ),
                           const SizedBox(width: 170.0),
-                          DialogBox(index: index, id: ChannelPage.id),
+                          // DialogBox(index: index, id: ChannelPage.id),
                         ],
                       ),
                       Padding(
@@ -331,28 +332,65 @@ class _PoliticsCatagoriesState extends State<PoliticsCatagories> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 15.0, top: 10.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      contentModels![index]
-                                          .viewCount!
-                                          .toString(),
-                                      style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold,
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 15.0, top: 10.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (_) => ReadContent(
+                                                        title: contentModels![
+                                                                index]
+                                                            .title,
+                                                        name: contentModels![
+                                                                index]
+                                                            .publisherChannel!
+                                                            .name,
+                                                        poster: contentModels![
+                                                                index]
+                                                            .poster,
+                                                        description:
+                                                            contentModels![
+                                                                    index]
+                                                                .description,
+                                                        time: contentModels![
+                                                                index]
+                                                            .publishedDate!
+                                                            .minute
+                                                            .toString(),
+                                                        publisher:
+                                                            contentModels![
+                                                                    index]
+                                                                .authors,
+                                                      )));
+                                        },
+                                        icon: const Icon(
+                                            Icons.arrow_downward_outlined),
+                                      ),
+                                      const SizedBox(width: 10.0),
+                                      Text(
+                                        contentModels![index]
+                                            .viewCount!
+                                            .toString(),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: HexColor("#C0C0BE"),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 5.0),
+                                      Icon(
+                                        Icons.remove_red_eye,
                                         color: HexColor("#C0C0BE"),
                                       ),
-                                    ),
-                                    const SizedBox(width: 5.0),
-                                    Icon(
-                                      Icons.remove_red_eye,
-                                      color: HexColor("#C0C0BE"),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

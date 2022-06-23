@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final subscriberData = subscriberDataFromJson(jsonString);
+
 import 'dart:convert';
 
 SubscriberData subscriberDataFromJson(String str) =>
@@ -8,46 +12,41 @@ String subscriberDataToJson(SubscriberData data) => json.encode(data.toJson());
 class SubscriberData {
   SubscriberData({
     this.status,
-    this.token,
     this.data,
   });
 
   final String? status;
-  final String? token;
   final Data? data;
 
   factory SubscriberData.fromJson(Map<String, dynamic> json) => SubscriberData(
         status: json["status"],
-        token: json["token"],
         data: Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
         "status": status,
-        "token": token,
         "data": data!.toJson(),
       };
 }
 
 class Data {
   Data({
-    this.user,
+    this.doc,
   });
 
-  final User? user;
+  final Doc? doc;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        user: User.fromJson(json["user"]),
+        doc: Doc.fromJson(json["doc"]),
       );
 
   Map<String, dynamic> toJson() => {
-        "user": user!.toJson(),
+        "doc": doc!.toJson(),
       };
 }
 
-class User {
-  User({
-    this.token,
+class Doc {
+  Doc({
     this.type,
     this.createdAt,
     this.subscribedTo,
@@ -64,11 +63,12 @@ class User {
     this.v,
     this.email,
     this.name,
+    this.password,
     this.firstName,
     this.lastName,
     this.docId,
   });
-  final String? token;
+
   final String? type;
   final DateTime? createdAt;
   final List<String>? subscribedTo;
@@ -85,11 +85,12 @@ class User {
   final int? v;
   final String? email;
   final String? name;
+  final String? password;
   final String? firstName;
   final String? lastName;
   final String? docId;
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
+  factory Doc.fromJson(Map<String, dynamic> json) => Doc(
         type: json["type"],
         createdAt: DateTime.parse(json["createdAt"]),
         subscribedTo: List<String>.from(json["subscribedTo"].map((x) => x)),
@@ -107,6 +108,7 @@ class User {
         v: json["__v"],
         email: json["email"],
         name: json["name"],
+        password: json["password"],
         firstName: json["firstName"],
         lastName: json["lastName"],
         docId: json["id"],
@@ -129,6 +131,7 @@ class User {
         "__v": v,
         "email": email,
         "name": name,
+        "password": password,
         "firstName": firstName,
         "lastName": lastName,
         "id": docId,

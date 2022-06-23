@@ -59,7 +59,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     validator: (value) {
                       if (value!.isEmpty ||
                           !RegExp(r'^[A-Z a-z ,.\-]+$').hasMatch(value)) {
-                        return "Please Enter Your Full Name";
+                        return "Please Enter Your Firs Name";
                       } else {
                         return null;
                       }
@@ -105,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     validator: (value) {
                       if (value!.isEmpty ||
                           !RegExp(r'^[A-Z a-z ,.\-]+$').hasMatch(value)) {
-                        return "Please Enter Your Full Name";
+                        return "Please Enter Your last Name";
                       } else {
                         return null;
                       }
@@ -200,7 +200,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (value!.isEmpty ||
                           !RegExp(r'^[A-Za-z0-9!@#$%*+-/~?<>].{8,20}$')
                               .hasMatch(value)) {
-                        return "Please Enter 8 or more char";
+                        return "Please Enter 9 or more char";
                       } else {
                         return null;
                       }
@@ -259,7 +259,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (value!.isEmpty ||
                           !RegExp(r'^[A-Za-z0-9!@#$%*+-/~?<>].{8,20}$')
                               .hasMatch(value)) {
-                        return "Please Enter 8 or more char";
+                        return "Please Enter 9 or more char";
                       } else {
                         return null;
                       }
@@ -309,7 +309,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, PreferencePage.id);
+                        // Navigator.pushNamed(context, PreferencePage.id);
                         if (formKey.currentState!.validate()) {
                           final snackBar = SnackBar(
                             content: Text("Submitting Form"),

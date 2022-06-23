@@ -131,7 +131,7 @@ class _PoliticsChannelDataByIDState extends State<PoliticsChannelDataByID> {
                             ),
                           ),
                           const SizedBox(width: 170.0),
-                          DialogBox(index: index, id: ""),
+                          // DialogBox(index: index, id: ""),
                         ],
                       ),
                       Padding(
@@ -273,7 +273,7 @@ class _PoliticsChannelDataByIDState extends State<PoliticsChannelDataByID> {
                             ),
                           ),
                           const SizedBox(width: 170.0),
-                          DialogBox(index: index, id: ChannelPage.id),
+                          // DialogBox(index: index, id: ChannelPage.id),
                         ],
                       ),
                       Padding(

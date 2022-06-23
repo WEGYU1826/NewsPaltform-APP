@@ -35,7 +35,7 @@ class _SearchPageState extends State<SearchPage> {
             expandedHeight: 100.0,
             backgroundColor: HexColor("#C0C0BE").withOpacity(0),
             centerTitle: true,
-            leading: leadingIcon(context),
+            // leading: leadingIcon(context),
             title: logoImage(_themeProvider.darkTheme),
             actions: [
               DialogBoxForLogoIcons(

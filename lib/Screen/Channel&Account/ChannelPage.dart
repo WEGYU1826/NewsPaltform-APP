@@ -82,9 +82,9 @@ class _ChannelPageState extends State<ChannelPage>
                   centerTitle: true,
                   leading: leadingIcon(context),
                   title: logoImage(_themeProvider.darkTheme),
-                  actions: [
-                    DialogBoxForVerElip(),
-                  ],
+                  // actions: [
+                  //   DialogBoxForVerElip(),
+                  // ],
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(
                       children: [

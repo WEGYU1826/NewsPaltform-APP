@@ -3,10 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zena/Screen/Authentication/LogInScreen.dart';
 import 'package:zena/Screen/ServicePage/ChangePreferancePage.dart';
 import 'package:zena/Screen/ServicePage/PersonalInfoPage.dart';
 import 'package:zena/Screen/ServicePage/SettingPage.dart';
+import 'package:zena/provider/subscriers_data.dart';
 
 import 'ServicePageConst.dart';
 
@@ -19,6 +21,35 @@ class DialogBoxForLogoIcons extends StatefulWidget {
 }
 
 class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
+  String? name;
+  String? email;
+  var isLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getName();
+    getEmail();
+  }
+
+  getName() async {
+    name = (await RemoteService().getUserNameData());
+    if (name != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
+  }
+
+  getEmail() async {
+    email = (await RemoteService().getUserEmailData());
+    if (email != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return logoIcon(context, widget.icon!);
@@ -50,14 +81,14 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "WEGYU",
+                              "Dagi",
                               style: GoogleFonts.acme(
                                 fontSize: 20.0,
                                 color: Theme.of(context).primaryColor,
                               ),
                             ),
                             Text(
-                              "wegyu@gmail.com",
+                              "dagi@dagi.com",
                               style: GoogleFonts.acme(
                                 fontSize: 16.0,
                                 color: Theme.of(context).primaryColor,
@@ -96,14 +127,13 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
                   divider(),
                   displaySweitch(),
                   divider(),
-                  buidPopUpContent(
+                  buidSignOutContent(
                     "Sign Out",
                     Icon(
                       Icons.logout_outlined,
                       size: 20.0,
                       color: Theme.of(context).primaryColor,
                     ),
-                    LoginPage.id,
                   ),
                   divider(),
                 ],
@@ -122,6 +152,35 @@ class _DialogBoxForLogoIconsState extends State<DialogBoxForLogoIcons> {
       child: GestureDetector(
         onTap: () {
           Navigator.pushNamed(context, id);
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              string,
+              style: GoogleFonts.acme(
+                fontSize: 16.0,
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+            icon,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buidSignOutContent(String string, Icon icon) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+      child: GestureDetector(
+        onTap: () async {
+          SharedPreferences sharedPreferences =
+              await SharedPreferences.getInstance();
+          await sharedPreferences.clear();
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => LoginPage()),
+              (route) => false);
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

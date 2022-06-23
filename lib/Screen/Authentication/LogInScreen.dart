@@ -1,13 +1,18 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, avoid_print
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zena/Screen/Authentication/SignUpScreen.dart';
 import 'package:zena/module/auth_module/other_auth.dart';
 import 'package:zena/module/auth_module/rich_text.dart';
+import 'package:zena/provider/Auth/auth_controller.dart';
+// import 'package:zena/provider/Auth/login.dart';
 import '../../ThemeData/theme_preference.dart';
 import '../../module/ServicePageConst.dart';
 import '../ServicePage/MainPage.dart';
@@ -24,10 +29,25 @@ class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
   bool hidePassword = true;
   bool showSpinner = false;
-  bool _isLoading = false;
+  bool isLoaded = false;
 
-  final _emailFieldController = TextEditingController();
-  final _passwordFieldController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    // getData();
+  }
+
+  void getData() async {
+    String respons = await authController.loginUser(context);
+    setState(() {
+      if (respons.isNotEmpty) {
+        isLoaded = false;
+      }
+    });
+  }
+
+  AuthController authController = AuthController();
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -49,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                   authDescription("Login to Get Your Personalized News Daily"),
                   const SizedBox(height: 40.0),
                   TextFormField(
-                    controller: _emailFieldController,
+                    controller: authController.emailFieldController,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     style: TextStyle(
@@ -96,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 10.0),
                   TextFormField(
-                    controller: _passwordFieldController,
+                    controller: authController.passwordFieldController,
                     obscureText: hidePassword,
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
@@ -106,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     onFieldSubmitted: (term) {},
                     validator: (value) {
                       if (value!.isEmpty ||
-                          !RegExp(r'^[A-Za-z0-9!@#$%*+-/~?<>].{8,20}$')
+                          !RegExp(r'^[A-Za-z0-9!@#$%*+-/~?<>].{7,20}$')
                               .hasMatch(value)) {
                         return "Please Enter 8 or more char";
                       } else {
@@ -153,35 +173,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 17.0, top: 10.0),
-                      child: RichText(
-                        text: TextSpan(
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14.0,
-                          ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: "Forget Password ?",
-                              style: TextStyle(
-                                color: HexColor("#2E92EE"),
-                                // decoration: TextDecoration.underline,
-                              ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // ignore: avoid_print
-                                  print("Forget Password");
-                                },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+
                   const SizedBox(height: 10.0),
+
                   SizedBox(
                     height: 45.0,
                     width: 150.0,
@@ -196,14 +190,15 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, MainPage.id);
+                      onPressed: () async {
                         if (formKey.currentState!.validate()) {
+                          // ignore: prefer_const_constructors
                           final snackBar = SnackBar(
-                            content: Text("Submitting Form"),
+                            content: const Text("Submitting Form"),
                           );
                           _scaffoldKey.currentState!.showSnackBar(snackBar);
                         }
+                        authController.loginUser(context);
                       },
                       child: Text(
                         "Login",
@@ -216,13 +211,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+
                   // const OtherAuthBuild(),
-                  const SizedBox(height: 20.0),
-                  RichTextBuild(
-                    id: SignUpPage.id,
-                    spanText: "Don't have an account? ",
-                    richText: " Sign Up",
-                  ),
+                  // const SizedBox(height: 20.0),
+                  // RichTextBuild(
+                  //   id: SignUpPage.id,
+                  //   spanText: "Don't have an account? ",
+                  //   richText: " Sign Up",
+                  // ),
                 ],
               ),
             ),

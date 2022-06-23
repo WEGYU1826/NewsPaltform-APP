@@ -57,14 +57,14 @@ class _ChannelPageState extends State<ChannelPageWithCatagories>
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  snap: false,
+                  snap: true,
                   pinned: true,
                   floating: true,
                   elevation: 0.0,
                   // expandedHeight: 100.0,
                   backgroundColor: HexColor("#C0C0BE").withOpacity(0),
                   centerTitle: true,
-                  leading: leadingIcon(context),
+                  // leading: leadingIcon(context),
                   title: logoImage(_themeProvider.darkTheme),
                   actions: [
                     DialogBoxForLogoIcons(

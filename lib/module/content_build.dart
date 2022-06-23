@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:zena/model/news_model.dart';
+import 'package:zena/module/read.dart';
 import 'package:zena/provider/NewsContent.dart';
 
 import '../Screen/Channel&Account/ChannelPage.dart';
@@ -127,7 +128,7 @@ class _ContentBuildState extends State<ContentBuild> {
                             ),
                           ),
                           const SizedBox(width: 170.0),
-                          DialogBox(index: index, id: ""),
+                          // DialogBox(index: index, id: ""),
                         ],
                       ),
                       Padding(
@@ -262,7 +263,7 @@ class _ContentBuildState extends State<ContentBuild> {
                             ),
                           ),
                           const SizedBox(width: 170.0),
-                          DialogBox(index: index, id: ChannelPage.id),
+                          // DialogBox(index: index, id: ChannelPage.id),
                         ],
                       ),
                       Padding(
@@ -319,26 +320,61 @@ class _ContentBuildState extends State<ContentBuild> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 15.0, top: 10.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      newsModels![index].viewCount!.toString(),
-                                      style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold,
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 15.0, top: 10.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (_) => ReadContent(
+                                                        title:
+                                                            newsModels![index]
+                                                                .title,
+                                                        name: newsModels![index]
+                                                            .publisherChannel!
+                                                            .name,
+                                                        poster:
+                                                            newsModels![index]
+                                                                .poster,
+                                                        description:
+                                                            newsModels![index]
+                                                                .description,
+                                                        time: newsModels![index]
+                                                            .publishedDate!
+                                                            .minute
+                                                            .toString(),
+                                                        publisher:
+                                                            newsModels![index]
+                                                                .authors,
+                                                      )));
+                                        },
+                                        icon: const Icon(
+                                            Icons.arrow_downward_outlined),
+                                      ),
+                                      const SizedBox(width: 10.0),
+                                      Text(
+                                        newsModels![index]
+                                            .viewCount!
+                                            .toString(),
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: HexColor("#C0C0BE"),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 5.0),
+                                      Icon(
+                                        Icons.remove_red_eye,
                                         color: HexColor("#C0C0BE"),
                                       ),
-                                    ),
-                                    const SizedBox(width: 5.0),
-                                    Icon(
-                                      Icons.remove_red_eye,
-                                      color: HexColor("#C0C0BE"),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

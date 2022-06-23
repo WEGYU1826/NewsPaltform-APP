@@ -1,10 +1,13 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zena/Screen/Authentication/LogInScreen.dart';
 import 'package:zena/Screen/Onboarding/DotIndicator.dart';
+import 'package:zena/Screen/ServicePage/HomePage.dart';
+import 'package:zena/Screen/ServicePage/MainPage.dart';
 import 'package:zena/module/OnboardingPageContent.dart';
 
 import '../../ThemeData/theme_preference.dart';
@@ -25,12 +28,24 @@ class _OnboardingPageState extends State<OnboardingPage> {
   void initState() {
     _pageController = PageController(initialPage: 0);
     super.initState();
+    checkLogin();
   }
 
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  void checkLogin() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String? val = await sharedPreferences.getString("token");
+
+    if (val != null) {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => MainPage()),
+          (route) => false);
+    }
   }
 
   @override
