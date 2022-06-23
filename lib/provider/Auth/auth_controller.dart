@@ -20,6 +20,7 @@ class AuthController extends Model {
   TextEditingController passwordFieldController = TextEditingController();
   Future loginUser(BuildContext context) async {
     _loadingUser = true;
+    notifyListeners();
     try {
       const url = 'https://zena-api-dev.herokuapp.com/api/v1/customers/login';
       var response = await http.post(Uri.parse(url),
@@ -31,16 +32,16 @@ class AuthController extends Model {
       if (response.statusCode == 200) {
         var loginArr = json.decode(response.body);
         pageRoute(context, loginArr['token'], loginArr['email']);
-        print(loginArr['token']);
-
-        _loadingUser = false;
+        // print(loginArr['token']);
       } else {
         _loadingUser = false;
-        print(response.body);
+        // print(response.body);
+        notifyListeners();
       }
     } on Exception catch (e) {
       _loadingUser = false;
-      print(e);
+      notifyListeners();
+      // print(e);
     }
   }
 

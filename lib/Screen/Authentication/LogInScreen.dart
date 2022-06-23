@@ -175,41 +175,51 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   const SizedBox(height: 10.0),
-
-                  SizedBox(
-                    height: 45.0,
-                    width: 150.0,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30.0),
+                  ScopedModelDescendant<AuthController>(
+                    builder: (context, child, model) => model.loadingUser
+                        ? Center(
+                            child: SpinKitDualRing(
+                              color: HexColor('#2E92EE'),
+                              // color: Colors.white,
+                              size: 50.0,
+                            ),
+                          )
+                        : SizedBox(
+                            height: 45.0,
+                            width: 150.0,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(30.0),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () async {
+                                if (formKey.currentState!.validate()) {
+                                  // ignore: prefer_const_constructors
+                                  final snackBar = SnackBar(
+                                    content: const Text("Please wait..."),
+                                  );
+                                  _scaffoldKey.currentState!
+                                      .showSnackBar(snackBar);
+                                }
+                                authController.loginUser(context);
+                              },
+                              child: Text(
+                                "Login",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.acme(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: HexColor("#FEFEFE"),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          // ignore: prefer_const_constructors
-                          final snackBar = SnackBar(
-                            content: const Text("Submitting Form"),
-                          );
-                          _scaffoldKey.currentState!.showSnackBar(snackBar);
-                        }
-                        authController.loginUser(context);
-                      },
-                      child: Text(
-                        "Login",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.acme(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: HexColor("#FEFEFE"),
-                        ),
-                      ),
-                    ),
                   ),
 
                   // const OtherAuthBuild(),

@@ -19,6 +19,7 @@ import 'package:zena/Test/test_2.dart';
 import 'package:zena/Test/test_3.dart';
 import 'package:zena/Test/test_4.dart';
 import 'package:zena/Test/test_5.dart';
+import 'package:zena/provider/Auth/auth_controller.dart';
 import 'package:zena/provider/Auth/login.dart';
 // import 'package:zena/provider/Auth/user.dart';
 import 'package:zena/provider/NewsContent.dart';
@@ -53,7 +54,7 @@ class _MyAppState extends State<MyApp> {
         await _themeProvider.darkThemePreference.getTheme();
   }
 
-  final model = AuthModel();
+  final model = AuthController();
 
   @override
   void initState() {
